@@ -1,6 +1,5 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { RootState } from '../app/store';
 import { change_wave, selectWave } from '../features/audioEngineSlice/audioParamsSlice';
 
 const WaveSelector = () => {

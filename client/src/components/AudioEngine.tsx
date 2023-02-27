@@ -1,23 +1,15 @@
 import React from 'react'
 import { useAppSelector } from '../app/hooks';
-import { selectWave } from '../features/audioEngineSlice/audioParamsSlice';
+import createNewOscillator from './audio_components/Oscillator'
 
 const AudioEngine = () => {
 
-  const selectedWave = useAppSelector(selectWave);
+  const selectedWave = useAppSelector(state => state.audioParams.wave);
 
   const context = new AudioContext();
 
   const handleClick = () => {
-    const oscillator = context.createOscillator();
-    oscillator.type = selectedWave;
-    oscillator.frequency.value = 440;
-    const gain = context.createGain();
-    oscillator.start();
-    setTimeout(()=>{
-      oscillator.stop();
-    }, 3000)
-    oscillator.connect(gain).connect(context.destination);
+    createNewOscillator(context, selectedWave, 440);
   }
 
   return (
