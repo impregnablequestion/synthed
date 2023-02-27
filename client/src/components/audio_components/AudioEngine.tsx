@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAppSelector } from '../app/hooks';
-import createNewOscillator from './audio_components/Oscillator'
+import { useAppSelector } from '../../app/hooks';
+import createNewOscillator from './Oscillator'
 
 const AudioEngine = () => {
 
@@ -9,7 +9,8 @@ const AudioEngine = () => {
   const context = new AudioContext();
 
   const handleClick = () => {
-    createNewOscillator(context, selectedWave, 440);
+    const osc = createNewOscillator(context, selectedWave, 440);
+    osc.connect(context.destination)
   }
 
   return (
