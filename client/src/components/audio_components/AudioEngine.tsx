@@ -1,28 +1,50 @@
 import React from 'react'
 import { useAppSelector } from '../../app/hooks';
 import Keyboard from '../display_components/Keyboard';
-import createNewOscillator from './Oscillator'
+import Osc from './Osc';
+import { midiToFreq } from './AudioHelpers';
 
 const AudioEngine = () => {
 
-  const selectedWave = useAppSelector(state => state.audioParams.wave);
-
-  const context = new AudioContext();
-
-  const midiToFreq = (note: number) => {
-    const tuning = 440;
-    return (tuning/32) * (2 ** ((note-9)/12));
+  // Params //
+  const wave = useAppSelector(state => state.audioParams.wave);
+  const envelope: Envelope = {
+    attack: 0.005,
+    decay: 0.1,
+    sustain: 0.8,
+    release: 1
   }
+  const mastervol = 0.4
 
+  // audio graph
+  const context = new AudioContext();
+  const out = context.destination;
+  const master = context.createGain();
+  master.gain.value = mastervol;
+  master.connect(out);
+  let nodes: Osc[] = [];
+
+
+  // play and stop actions
   const playNote = (midiNumber: number) => {
     const freq = midiToFreq(midiNumber)
-    const osc = createNewOscillator(context, selectedWave, freq)
-    osc.connect(context.destination)
-    
+    const osc = new Osc(context, freq, wave, master, midiNumber, envelope);
+    nodes.push(osc);
+    console.log("played", nodes);
   }
 
   const stopNote = (midiNumber: number) => {
-
+    let newNodes: Osc[] = [];
+    nodes.forEach((osc: Osc) => {
+      if (osc.midiNumber === midiNumber) {
+        osc.stop();
+      } else {
+        newNodes.push(osc);
+      }
+    });
+    nodes = newNodes;
+    console.log("released", nodes);
+    
   }
 
   return (

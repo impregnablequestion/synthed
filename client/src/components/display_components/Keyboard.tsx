@@ -26,7 +26,6 @@ const Keyboard = ({playNote, stopNote}: KeyboardProps) => {
 
   const handleStopNote = (midiNumber: number) => {
     stopNote(midiNumber);
-    
   }
 
   return(
