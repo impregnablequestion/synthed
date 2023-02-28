@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <AudioEngine />
       <WaveSelector />
-      <Keyboard />
+      {/* <Keyboard /> */}
     </div>
   );
 }
