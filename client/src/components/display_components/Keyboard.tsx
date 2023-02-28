@@ -12,7 +12,7 @@ interface KeyboardProps {
 const Keyboard = ({playNote, stopNote}: KeyboardProps) => {
 
   const firstNote = MidiNumbers.fromNote('c3');
-  const lastNote = MidiNumbers.fromNote('f4');
+  const lastNote = MidiNumbers.fromNote('e4');
 
   const keyboardShortcuts = KeyboardShortcuts.create({
     firstNote: firstNote,

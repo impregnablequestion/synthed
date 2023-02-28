@@ -1,8 +1,7 @@
 import React from 'react'
 import { useAppSelector } from '../../app/hooks';
 import Keyboard from '../display_components/Keyboard';
-import Osc from './Osc';
-import { midiToFreq } from './AudioHelpers';
+import Osc from './Oscillator';
 
 const AudioEngine = () => {
 
@@ -12,9 +11,10 @@ const AudioEngine = () => {
     attack: 0.005,
     decay: 0.1,
     sustain: 0.8,
-    release: 1
+    release: 0.3
   }
-  const mastervol = 0.4
+  const mastervol = 0.4;
+  const voices = 4;
 
   // audio graph
   const context = new AudioContext();
@@ -24,13 +24,13 @@ const AudioEngine = () => {
   master.connect(out);
   let nodes: Osc[] = [];
 
-
   // play and stop actions
   const playNote = (midiNumber: number) => {
-    const freq = midiToFreq(midiNumber)
-    const osc = new Osc(context, freq, wave, master, midiNumber, envelope);
-    nodes.push(osc);
-    console.log("played", nodes);
+    if (nodes.length < voices) {
+      const osc = new Osc(context, master, midiNumber, wave, envelope);
+      nodes.push(osc);
+      console.log("played", nodes);
+    }
   }
 
   const stopNote = (midiNumber: number) => {
