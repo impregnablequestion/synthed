@@ -1,13 +1,11 @@
 import { midiToFreq } from "./AudioHelpers";
 import {RootState, store} from '../../app/store'
+import { selectWave } from "../../features/audioEngineSlice/audioParamsSlice";
+
 
 store.subscribe(listener)
 
-let wave: Wave;
-
-const selectWave = (state: RootState) => {
-  return state.audioParams.wave;
-}
+let wave: Wave = "sine";
 
 function listener () {
   wave = selectWave(store.getState());
