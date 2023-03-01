@@ -27,8 +27,7 @@ export default class Oscillator {
     context: AudioContext,
     output: GainNode,
     midiNumber: number,
-    // type: Wave,
-    envelope?: Envelope
+    envelope: Envelope
 
     ) {
 
@@ -37,12 +36,7 @@ export default class Oscillator {
     this.oscillator.frequency.value = midiToFreq(midiNumber);
     this.oscillator.type = wave;
     this.midiNumber = midiNumber;
-    this.envelope = envelope || {
-      attack: 0.01,
-      decay: 0.1,
-      sustain: 0.2,
-      release: 0.1
-    }
+    this.envelope = envelope;
     this.easing = 0.002;
     this.volume = context.createGain();
     this.volume.gain.value = 0; 

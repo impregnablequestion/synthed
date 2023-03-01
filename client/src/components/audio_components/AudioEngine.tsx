@@ -1,12 +1,11 @@
 import React from 'react'
-import { useAppSelector } from '../../app/hooks';
 import Keyboard from '../display_components/Keyboard';
 import Osc from './Oscillator';
+import { Slider } from '@mui/material';
 
 const AudioEngine = () => {
 
   // Params //
-  // const wave = useAppSelector(state => state.audioParams.wave);
   const envelope: Envelope = {
     attack: 0.005,
     decay: 0.1,
@@ -43,13 +42,34 @@ const AudioEngine = () => {
       }
     });
     nodes = newNodes;
-    console.log("released", nodes);
-    
+    console.log("released", nodes); 
   }
+
+  // HOW TO HANDLE THE TYPE FROM A MATERIAL UI SLIDER
+  // const handleMasterVolChange = (event: Event, value: number | number[]) => {
+  //   const newVol = Array.isArray(value)? value[0] : value;
+  //   setMasterVol(newVol);
+  // }
 
   return (
     <div>
       <Keyboard playNote = {playNote} stopNote = {stopNote}/>
+      {/* <Slider
+        sx={{
+          height: 200,
+          '& input[type="range"]': {
+            WebkitAppearance: 'slider-vertical',
+          },
+        }}
+        orientation="vertical"
+        step={0.01}
+        min={0}
+        max={1}
+        value={mastervol}
+        onChange={handleMasterVolChange}
+        aria-label="Master Volume"
+        valueLabelDisplay="on"
+      /> */}
     </div>
   )
 }
