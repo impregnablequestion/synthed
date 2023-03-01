@@ -6,7 +6,7 @@ import Osc from './Oscillator';
 const AudioEngine = () => {
 
   // Params //
-  const wave = useAppSelector(state => state.audioParams.wave);
+  // const wave = useAppSelector(state => state.audioParams.wave);
   const envelope: Envelope = {
     attack: 0.005,
     decay: 0.1,
@@ -27,7 +27,7 @@ const AudioEngine = () => {
   // play and stop actions
   const playNote = (midiNumber: number) => {
     if (nodes.length < voices) {
-      const osc = new Osc(context, master, midiNumber, wave, envelope);
+      const osc = new Osc(context, master, midiNumber, envelope);
       nodes.push(osc);
       console.log("played", nodes);
     }

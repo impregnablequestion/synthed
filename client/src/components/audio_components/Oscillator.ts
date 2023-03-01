@@ -1,4 +1,17 @@
 import { midiToFreq } from "./AudioHelpers";
+import {RootState, store} from '../../app/store'
+
+store.subscribe(listener)
+
+let wave: Wave;
+
+const selectWave = (state: RootState) => {
+  return state.audioParams.wave;
+}
+
+function listener () {
+  wave = selectWave(store.getState());
+}
 
 export default class Oscillator {
 
@@ -14,7 +27,7 @@ export default class Oscillator {
     context: AudioContext,
     output: GainNode,
     midiNumber: number,
-    type: Wave,
+    // type: Wave,
     envelope?: Envelope
 
     ) {
@@ -22,7 +35,7 @@ export default class Oscillator {
     this.context = context;
     this.oscillator = context.createOscillator();
     this.oscillator.frequency.value = midiToFreq(midiNumber);
-    this.oscillator.type = type;
+    this.oscillator.type = wave;
     this.midiNumber = midiNumber;
     this.envelope = envelope || {
       attack: 0.01,
