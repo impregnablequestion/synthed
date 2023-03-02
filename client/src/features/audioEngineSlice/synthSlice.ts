@@ -3,7 +3,7 @@ import { RootState } from '../../app/store';
 import { preset1 } from '../../app/synth_engine/presets';
 
 export interface synthState {
-  settings: Preset;
+  settings: Settings;
   status: 'idle' | 'loading' | 'failed'
 }
 
@@ -24,10 +24,10 @@ export const synthSlice = createSlice({
     },
 
     change_wave: (state, action) => {
-      state.settings.osc_settings.wave = action.payload;
+      state.settings.osc.wave = action.payload;
     },
     change_voices: (state, action) => {
-      state.settings.voices = action.payload;
+      state.settings.global.voices = action.payload;
     }
   },
 });

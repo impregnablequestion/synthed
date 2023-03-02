@@ -4,7 +4,7 @@ import { change_wave } from '../../features/audioEngineSlice/synthSlice';
 
 const WaveSelector = () => {
 
-  const selected = useAppSelector(state => state.synth.settings.osc_settings.wave);
+  const selected = useAppSelector(state => state.synth.settings.osc.wave);
   const dispatch = useAppDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

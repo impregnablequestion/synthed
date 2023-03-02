@@ -21,9 +21,15 @@ type OscParams = {
   fine_tune: number,
 }
 
-type Preset = {
-  osc_settings: OscParams
-  filter_settings: Filter,
+type GlobalParams = {
+  voices: number,
+  octave: number,
+  master_gain: number
+}
+
+type Settings = {
+  osc: OscParams
+  filter: Filter,
   envelope: Envelope,
-  voices: number
+  global: GlobalParams
 }

@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 const MasterGainSlider = () => {
 
+  // const selected = useAppSelector(state => state)
 
   // const handleMasterVolChange = (event: Event, value: number | number[]) => {
   //   const newVol = Array.isArray(value) ? value[0] : value;

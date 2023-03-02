@@ -1,6 +1,5 @@
 import { midiToFreq } from "./AudioHelpers";
 
-
 export default class Oscillator {
 
   context: AudioContext;
@@ -37,9 +36,9 @@ export default class Oscillator {
 
   start () {
     let {currentTime} = this.context;
-    this.volume.gain.cancelScheduledValues(currentTime);
+    this.volume.gain.cancelScheduledValues(currentTime + this.easing);
     this.volume.gain.setValueAtTime(0, currentTime + this.easing);
-    this.volume.gain.linearRampToValueAtTime(1, currentTime + this.envelope.attack + this.easing);
+    this.volume.gain.linearRampToValueAtTime(0.8, currentTime + this.envelope.attack + this.easing);
     this.volume.gain.linearRampToValueAtTime(this.envelope.sustain, currentTime + this.envelope.attack + this.envelope.decay + this.easing);
   }
 
