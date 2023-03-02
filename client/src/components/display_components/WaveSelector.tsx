@@ -1,10 +1,10 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { change_wave, selectWave } from '../../features/audioEngineSlice/audioParamsSlice';
+import { change_wave } from '../../features/audioEngineSlice/synthSlice';
 
 const WaveSelector = () => {
 
-  const selected = useAppSelector(selectWave);
+  const selected = useAppSelector(state => state.synth.settings.osc_settings.wave);
   const dispatch = useAppDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

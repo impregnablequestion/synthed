@@ -1,21 +1,11 @@
 import { midiToFreq } from "./AudioHelpers";
-import {RootState, store} from '../../app/store'
-import { selectWave } from "../../features/audioEngineSlice/audioParamsSlice";
 
-
-store.subscribe(listener)
-
-let wave: Wave = "sine";
-
-function listener () {
-  wave = selectWave(store.getState());
-}
 
 export default class Oscillator {
 
   context: AudioContext;
   oscillator: OscillatorNode;
-  envelope: Envelope;
+  envelope: EnvelopeParams;
   volume: GainNode;
   easing: number;
   midiNumber: number;
@@ -25,17 +15,18 @@ export default class Oscillator {
     context: AudioContext,
     output: GainNode,
     midiNumber: number,
-    envelope: Envelope
+    settings: OscParams,
+    envelope: EnvelopeParams
 
     ) {
 
     this.context = context;
     this.oscillator = context.createOscillator();
     this.oscillator.frequency.value = midiToFreq(midiNumber);
-    this.oscillator.type = wave;
+    this.oscillator.type = settings.wave;
     this.midiNumber = midiNumber;
     this.envelope = envelope;
-    this.easing = 0.002;
+    this.easing = 0.008;
     this.volume = context.createGain();
     this.volume.gain.value = 0; 
 
