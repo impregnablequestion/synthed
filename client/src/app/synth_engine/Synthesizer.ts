@@ -1,5 +1,4 @@
 import Oscillator from "./Oscillator";
-import { preset1, preset2 } from "./presets";
 
 export default class Synthesizer {
 
@@ -15,16 +14,25 @@ export default class Synthesizer {
     this.nodes = []
 
     // making audio graph
-    this.filter = this.context.createBiquadFilter();
-    this.filter.frequency.value = this.settings.filter.frequency;
-    this.master = this.context.createGain();
-    this.master.gain.value = this.settings.global.master_gain;
 
+    this.filter = this.context.createBiquadFilter();
+    this.master = this.context.createGain();
     this.filter.connect(this.master).connect(this.context.destination)
+
+    this.refresh()
+  }
+
+  refresh () {
+    this.filter.frequency.value = this.settings.filter.frequency;
+    this.master.gain.value = this.settings.general.master_gain;
+
+    for (let osc of this.nodes) {
+      osc.oscillator.type = this.settings.osc.wave
+    }
   }
 
   noteOn (midiNumber: number) {
-  if (this.nodes.length < this.settings.global.voices) {
+  if (this.nodes.length < this.settings.general.voices) {
 
     const osc = new Oscillator(
       this.context,
@@ -35,7 +43,6 @@ export default class Synthesizer {
     );
     
     this.nodes.push(osc);
-    
     }
   }
 
@@ -52,8 +59,11 @@ export default class Synthesizer {
   }
 
   setWave (preset: Settings) {
-    // let newPreset = {...this.preset}
-    // newPreset.osc_settings.wave = wave;
     this.settings = preset;
+  }
+
+  setParams(newSettings: Settings) {
+    this.settings = newSettings;
+    this.refresh()
   }
 }

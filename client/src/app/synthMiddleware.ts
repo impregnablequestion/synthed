@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { change_wave, play_note, stop_note } from "../features/synthSlice";
+import { change_param, play_note, stop_note } from "../features/synthSlice";
 import { preset1 } from "./synth_engine/presets";
 import Synthesizer from "./synth_engine/Synthesizer";
 
@@ -22,38 +22,28 @@ synthMiddleware.startListening({
     console.log("released_note:", action);
     synth.noteOff(action.payload);
   }
-})
+});
 
 synthMiddleware.startListening({
-  actionCreator: change_wave,
+  actionCreator: change_param,
   effect: (action) => {
-    console.log("changed_wave", action);
-    // synth.nodes.forEach((osc: Oscillator) => {
-    //   osc.oscillator.type = action.payload;
-    // });
+    console.log("changed param", action);
 
+    let {module, param, value} = action.payload;
+    const settings = synth.settings;
 
-    let c = synth.settings.osc;
-    let wave = action.payload;
-    let coarse_tune = c.coarse_tune;
-    let fine_tune = c.fine_tune;
-    let gain = c.gain;
+    console.log("Previous: ", settings);
 
-    let osc_params = {
-      wave: wave,
-      coarse_tune: coarse_tune,
-      fine_tune: fine_tune,
-      gain: gain
-    };
-
-    const nialls_funky_preset = {
-      osc: osc_params,
-      filter: synth.settings.filter,
-      envelope: synth.settings.envelope,
-      global: synth.settings.global
+    const newSettings = {
+      ...settings,
+      [module as keyof Settings]: {
+        ...settings[module as keyof Settings],
+        [param as keyof Params]: value
+      }
     }
 
-    synth.setWave(nialls_funky_preset);
-    // synth.setWave(newPreset);
+    console.log("Updated: ", newSettings);
+    
+    synth.setParams(newSettings);
   }
 })

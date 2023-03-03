@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { change_wave } from '../../features/synthSlice';
+import { change_param } from '../../features/synthSlice';
 
 const WaveSelector = () => {
 
@@ -8,7 +8,10 @@ const WaveSelector = () => {
   const dispatch = useAppDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch(change_wave(e.target.value))
+    dispatch(change_param({
+      module: "osc",
+      param: "wave",
+      value: e.target.value}))
   }
 
   return (

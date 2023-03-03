@@ -4,13 +4,13 @@ import { preset1 } from '../app/synth_engine/presets';
 
 
 export interface synthState {
-  settings: Settings;
+  settings: Settings,
   status: 'idle' | 'loading' | 'failed'
 }
 
 export interface paramChange {
-  module: string;
-  param: string;
+  module: keyof Settings,
+  param: keyof GeneralParams | keyof OscParams | keyof FilterParams | keyof EnvelopeParams,
   value: any;
 }
 
@@ -29,16 +29,16 @@ export const synthSlice = createSlice({
 
     stop_note: (state, action) => {
     },
-    change_wave: (state, action) => {
-      state.settings.osc.wave = action.payload;
-    },
+    
     change_param: (state, action: PayloadAction<paramChange>) => {
-      let {value, param, module} = action.payload
-      state.settings[module as keyof Settings][param as keyof GlobalParams] = value
+      let {module, value, param} = action.payload
+      state.settings[module as keyof Settings][param as keyof Params] = value
     }
   },
 });
 
-export const { play_note, stop_note, change_wave, change_param} = synthSlice.actions;
+export const { play_note, stop_note, change_param} = synthSlice.actions;
+
+export const selectSettings = (state: RootState) => state.synth.settings;
 
 export default synthSlice.reducer;
