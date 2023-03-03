@@ -2,18 +2,16 @@ import { Slider } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { change_param, selectSettings } from '../../features/synthSlice';
 
-
-const MasterGainSlider = () => {
-  
+const FilterFreqSlider = () => {
   const selected = useAppSelector(selectSettings);  
   const dispatch = useAppDispatch();
   
   const handleMasterVolChange = (event: Event, value: number | number[]) => {
-    const newVol = Array.isArray(value) ? value[0] : value;
+    const newFreq = Array.isArray(value) ? value[0] : value;
     dispatch(change_param({
-      module: "general",
-      param: "master_gain",
-      value: newVol
+      module: "filter",
+      param: "frequency",
+      value: newFreq
     }));
   }
 
@@ -26,10 +24,10 @@ const MasterGainSlider = () => {
         },
       }}
       orientation="vertical"
-      step={0.02}
+      step={10}
       min={0}
-      max={1}
-      value={selected.general.master_gain}
+      max={20000}
+      value={selected.filter.frequency}
       onChange={handleMasterVolChange}
       aria-label="Master Volume"
       valueLabelDisplay="on"
@@ -37,4 +35,4 @@ const MasterGainSlider = () => {
   )
 }
 
-export default MasterGainSlider;
+export default FilterFreqSlider

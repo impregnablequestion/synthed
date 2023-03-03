@@ -21,18 +21,18 @@ type OscParams = {
   fine_tune: number,
 }
 
-type GlobalParams = {
+type GeneralParams = {
   voices: number,
   octave: number,
   master_gain: number
 }
 
-type Params = GlobalParams | OscParams | FilterParams | EnvelopeParams
+type Params = FilterParams | OscParams | FilterParams | EnvelopeParams
 
 
 type Settings = {
   osc: OscParams,
   filter: Filter,
   envelope: Envelope,
-  global: GlobalParams
+  general: GeneralParams
 }

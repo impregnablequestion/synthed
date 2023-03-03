@@ -8,7 +8,7 @@ const preset1: Settings = {
   filter: {
     frequency: 15000,
     type: "lowpass",
-    q: 0
+    q: 0.3
   },
   envelope: {
     attack: 0.1,
@@ -16,7 +16,7 @@ const preset1: Settings = {
     sustain: 0.4,
     release: 0.6,
   },
-  global: {
+  general: {
     voices: 4,
     octave: 0,
     master_gain: 0.6
@@ -41,7 +41,7 @@ const preset2: Settings = {
     sustain: 0.8,
     release: 0.5,
   },
-  global: {
+  general: {
     voices: 4,
     octave: 0,
     master_gain: 0.6
