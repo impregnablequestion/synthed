@@ -1,10 +1,12 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action, Store } from '@reduxjs/toolkit';
+import synthReducer from "../features/audioEngineSlice/synthSlice"
+import { synthMiddleware } from './synthMiddleware';
 
-export const store = configureStore({
+export const store: Store = configureStore({
   reducer: {
-    counter: counterReducer,
+    synth: synthReducer
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(synthMiddleware.middleware)
 });
 
 export type AppDispatch = typeof store.dispatch;
