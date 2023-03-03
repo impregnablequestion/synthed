@@ -6,10 +6,10 @@ import { change_param } from '../../features/synthSlice';
 
 
 const MasterGainSlider = () => {
-
-  const selected = useAppSelector((state: RootState) => state.synth.settings);
+  
+  const selected = useAppSelector((state: RootState) => state.synth.settings);  
   const dispatch = useAppDispatch();
-
+  
   const handleMasterVolChange = (event: Event, value: number | number[]) => {
     const newVol = Array.isArray(value) ? value[0] : value;
     dispatch(change_param({
@@ -31,6 +31,7 @@ const MasterGainSlider = () => {
       step={0.02}
       min={0}
       max={1}
+      defaultValue={selected.master_gain}
       value={selected.master_gain}
       onChange={handleMasterVolChange}
       aria-label="Master Volume"

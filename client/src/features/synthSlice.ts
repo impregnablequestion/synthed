@@ -29,12 +29,14 @@ export const synthSlice = createSlice({
 
     stop_note: (state, action) => {
     },
+
     change_wave: (state, action) => {
       state.settings.osc.wave = action.payload;
     },
+    
     change_param: (state, action: PayloadAction<paramChange>) => {
       let {value, param, module} = action.payload
-      state.settings[module as keyof Settings][param as keyof GlobalParams] = value
+      state.settings[module as keyof Settings][param as keyof Params] = value
     }
   },
 });

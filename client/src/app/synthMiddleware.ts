@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { change_wave, play_note, stop_note } from "../features/synthSlice";
+import { change_param, change_wave, play_note, stop_note } from "../features/synthSlice";
 import { preset1 } from "./synth_engine/presets";
 import Synthesizer from "./synth_engine/Synthesizer";
 
@@ -22,7 +22,7 @@ synthMiddleware.startListening({
     console.log("released_note:", action);
     synth.noteOff(action.payload);
   }
-})
+});
 
 synthMiddleware.startListening({
   actionCreator: change_wave,
@@ -55,5 +55,30 @@ synthMiddleware.startListening({
 
     synth.setWave(nialls_funky_preset);
     // synth.setWave(newPreset);
+  }
+});
+
+synthMiddleware.startListening({
+  actionCreator: change_param,
+  effect: (action) => {
+    console.log("changed param", action);
+
+    let {module, param, value} = action.payload;
+    const settings = synth.settings
+
+    console.log(settings);
+
+    const newSettings = {
+      ...settings,
+      [module as keyof Settings]: {
+        ...[module as keyof Settings],
+        [param as keyof GlobalParams]: value
+      }
+    }
+
+    console.log(newSettings);
+    
+
+    synth.settings = newSettings;
   }
 })

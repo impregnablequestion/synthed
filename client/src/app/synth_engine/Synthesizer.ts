@@ -35,7 +35,6 @@ export default class Synthesizer {
     );
     
     this.nodes.push(osc);
-    
     }
   }
 
@@ -52,8 +51,10 @@ export default class Synthesizer {
   }
 
   setWave (preset: Settings) {
-    // let newPreset = {...this.preset}
-    // newPreset.osc_settings.wave = wave;
     this.settings = preset;
+  }
+
+  setParams(newSettings: Settings) {
+    this.settings = newSettings;
   }
 }

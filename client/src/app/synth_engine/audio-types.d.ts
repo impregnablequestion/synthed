@@ -27,6 +27,9 @@ type GlobalParams = {
   master_gain: number
 }
 
+type Params = GlobalParams | OscParams | FilterParams | EnvelopeParams
+
+
 type Settings = {
   osc: OscParams,
   filter: Filter,
