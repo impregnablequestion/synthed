@@ -21,7 +21,6 @@ const preset1: Settings = {
     octave: 0,
     master_gain: 0.6
   }
-
 }
 
 const preset2: Settings = {

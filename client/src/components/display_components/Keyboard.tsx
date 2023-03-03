@@ -2,7 +2,7 @@ import React from 'react'
 import { Piano, KeyboardShortcuts, MidiNumbers } from 'react-piano';
 import "react-piano/dist/styles.css"
 import { useAppDispatch } from '../../app/hooks';
-import { play_note, stop_note } from '../../features/audioEngineSlice/synthSlice';
+import { play_note, stop_note } from '../../features/synthSlice';
 
 // TODO: Wire keyboard up to audio engine
 

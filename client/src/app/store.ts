@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action, Store } from '@reduxjs/toolkit';
-import synthReducer from "../features/audioEngineSlice/synthSlice"
+import synthReducer from "../features/synthSlice"
 import { synthMiddleware } from './synthMiddleware';
 
 export const store: Store = configureStore({

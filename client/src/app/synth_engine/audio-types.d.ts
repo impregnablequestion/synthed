@@ -28,7 +28,7 @@ type GlobalParams = {
 }
 
 type Settings = {
-  osc: OscParams
+  osc: OscParams,
   filter: Filter,
   envelope: Envelope,
   global: GlobalParams

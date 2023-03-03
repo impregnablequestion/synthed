@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { change_wave, play_note, stop_note } from "../features/audioEngineSlice/synthSlice";
+import { change_wave, play_note, stop_note } from "../features/synthSlice";
 import { preset1 } from "./synth_engine/presets";
 import Synthesizer from "./synth_engine/Synthesizer";
 
@@ -31,15 +31,13 @@ synthMiddleware.startListening({
     // synth.nodes.forEach((osc: Oscillator) => {
     //   osc.oscillator.type = action.payload;
     // });
-    const newSettings = {...synth.settings}
+
 
     let c = synth.settings.osc;
-    let wave = c.wave;
+    let wave = action.payload;
     let coarse_tune = c.coarse_tune;
     let fine_tune = c.fine_tune;
     let gain = c.gain;
-
-    wave = action.payload;
 
     let osc_params = {
       wave: wave,
