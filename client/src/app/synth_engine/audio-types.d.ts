@@ -27,7 +27,7 @@ type GeneralParams = {
   master_gain: number
 }
 
-type Params = FilterParams | OscParams | FilterParams | EnvelopeParams
+type Params = keyof FilterParams | keyof OscParams | keyof FilterParams | keyof EnvelopeParams
 
 
 type Settings = {

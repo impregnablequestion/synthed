@@ -18,12 +18,14 @@ export default class Synthesizer {
     this.filter = this.context.createBiquadFilter();
     this.master = this.context.createGain();
     this.filter.connect(this.master).connect(this.context.destination)
+    // this.master.connect(this.context.destination)
 
     this.refresh()
   }
 
   refresh () {
     this.filter.frequency.value = this.settings.filter.frequency;
+    this.filter.type = this.settings.filter.type;
     this.master.gain.value = this.settings.general.master_gain;
 
     for (let osc of this.nodes) {
