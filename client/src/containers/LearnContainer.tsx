@@ -1,10 +1,14 @@
 import React from 'react'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const LearnContainer = () => {
+
+    
+
   return (
     <div>
-      <p>home</p>
+      <Header/>
       <Footer/>
     </div>
   )
