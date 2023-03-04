@@ -20,7 +20,7 @@ const Envelope = () => {
         <p>S</p>
       </EnvelopeParam>
       <EnvelopeParam>
-        <VertSlider module='envelope' param='release' min={0.005} max={8} step={0.005}/>
+        <VertSlider module='envelope' param='release' min={0.1} max={8} step={0.005}/>
         <p>R</p>
       </EnvelopeParam>
     </EnvelopeParams>
