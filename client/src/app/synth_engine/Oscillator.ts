@@ -34,14 +34,14 @@ export default class Oscillator {
     this.update(settings);
     
 
-    // connect the audiograph
+    // connect the audio graph
     this.oscillator
     .connect(this.volume)
     .connect(this.gain)
     .connect(output);
 
-    this.oscillator.start();
     this.start();
+    this.oscillator.start();
   }
 
   // runs when the state of the synthesizer changes
@@ -55,19 +55,21 @@ export default class Oscillator {
 
   start () {
     let {currentTime} = this.context;
-    this.volume.gain.cancelScheduledValues(currentTime + this.easing);
-    this.volume.gain.setValueAtTime(0, currentTime + this.easing);
+    this.volume.gain.cancelScheduledValues(currentTime);
+    this.volume.gain.setValueAtTime(0, currentTime);
     this.volume.gain.linearRampToValueAtTime(1, currentTime + this.envelope.attack + this.easing);
+    this.volume.gain.setValueAtTime(1, currentTime + this.envelope.attack +  this.easing);
     this.volume.gain.linearRampToValueAtTime(this.envelope.sustain, currentTime + this.envelope.attack + this.envelope.decay + this.easing);
   }
 
   stop () {
     let {currentTime} = this.context;
-    this.volume.gain.cancelScheduledValues(currentTime + this.easing);
+    this.volume.gain.cancelScheduledValues(currentTime);
     // this.volume.gain.setTargetAtTime(0, currentTime , this.envelope.release + this.easing);
-    this.volume.gain.linearRampToValueAtTime(0, currentTime + this.envelope.release + this.easing)
+    this.volume.gain.linearRampToValueAtTime(0.001, currentTime + this.envelope.release + this.easing)
+    this.oscillator.stop(currentTime + this.envelope.release + this.easing);
     setTimeout(() => {
       this.oscillator.disconnect();
-    }, 5000);
+    }, 10000);
   }
 }
