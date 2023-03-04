@@ -10,11 +10,11 @@ const Osc = () => {
       <h2>osc</h2>
       <OscParams>
         <Controls>
-          <p>inactive</p>
+          <p>coarse tune</p>
           <HorizontalSlider
             module='osc' param='coarse_tune' min={-12} max={12} step={1}
           />
-          <p>inactive</p>
+          <p>fine tune</p>
           <HorizontalSlider
             module='osc' param='fine_tune' min={-100} max={100} step={1}
           />

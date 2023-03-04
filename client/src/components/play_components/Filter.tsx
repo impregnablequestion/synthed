@@ -7,9 +7,11 @@ const Filter = () => {
   return (
     <FilterCard>
       <h2>filter</h2>
+      <p>frequency</p>
       <HorizontalSlider
       module='filter' param='frequency' min={20} max={20000} step = {10}
       />
+      <p>resonance</p>
       <HorizontalSlider
       module='filter' param='q' min={0} max={5000} step = {10}
       />

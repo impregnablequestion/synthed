@@ -24,25 +24,33 @@ export default class Oscillator {
     this.volume = context.createGain();
     this.gain = context.createGain();
     this.oscillator = context.createOscillator();
-    this.oscillator.frequency.value = midiToFreq(midiNumber);
-    this.oscillator.type = settings.wave;
+
+    // initialise constants
+
+    this.easing = 0.003;
     this.midiNumber = midiNumber;
-    this.envelope = envelope;
-    this.easing = 0.008;
     this.volume.gain.value = 0;
-    this.gain.gain.value = settings.gain;
+    this.envelope = envelope;
+    this.update(settings);
+    
 
-
+    // connect the audiograph
     this.oscillator
     .connect(this.volume)
     .connect(this.gain)
     .connect(output);
+
     this.oscillator.start();
     this.start();
   }
 
-  update () {
-    
+  // runs when the state of the synthesizer changes
+
+  update (settings: OscParams) {
+    this.oscillator.frequency.value = midiToFreq(this.midiNumber+settings.coarse_tune)
+    this.oscillator.detune.value = settings.fine_tune;
+    this.oscillator.type = settings.wave;
+    this.gain.gain.value = settings.gain;
   }
 
   start () {
