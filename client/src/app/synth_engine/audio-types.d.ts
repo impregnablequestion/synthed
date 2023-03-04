@@ -1,5 +1,5 @@
 type Waveform = "sine" | "triangle" | "square" | "sawtooth"
-type FilterType = "lowpass" | "highpass"
+type FilterType = "lowpass" | "highpass" | "bandpass" | "notch"
 
 type EnvelopeParams = {
   attack: number,
