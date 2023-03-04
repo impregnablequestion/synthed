@@ -40,6 +40,7 @@ const TypeSelector = ({ module, param }: TypeSelectorProps) => {
   if (module === "osc" && param === "wave") {
     return (
       <ToggleButtonGroup
+        size='small'
         value={selected.osc.wave}
         exclusive
         onChange={handleChange}
@@ -62,6 +63,7 @@ const TypeSelector = ({ module, param }: TypeSelectorProps) => {
   } else if (module === "filter" && param === "type"){
     return (
       <ToggleButtonGroup
+        size='small'
         value={selected.filter.type}
         exclusive
         onChange={handleChange}

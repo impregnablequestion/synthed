@@ -26,8 +26,10 @@ const HorizontalSlider = ({module, param, min, max, step}: SliderProps) => {
   return (
     <Slider
       sx={{
-        width: 200
+        width: 200,
+        color: 'black'
       }}
+      size="small"
       step={step}
       min={min}
       max={max}

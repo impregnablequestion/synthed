@@ -8,6 +8,7 @@ export default class Oscillator {
   volume: GainNode;
   easing: number;
   midiNumber: number;
+  gain: GainNode;
 
   constructor (
 
@@ -20,25 +21,35 @@ export default class Oscillator {
     ) {
 
     this.context = context;
+    this.volume = context.createGain();
+    this.gain = context.createGain();
     this.oscillator = context.createOscillator();
     this.oscillator.frequency.value = midiToFreq(midiNumber);
     this.oscillator.type = settings.wave;
     this.midiNumber = midiNumber;
     this.envelope = envelope;
     this.easing = 0.008;
-    this.volume = context.createGain();
-    this.volume.gain.value = 0; 
+    this.volume.gain.value = 0;
+    this.gain.gain.value = settings.gain;
 
-    this.oscillator.connect(this.volume).connect(output);
+
+    this.oscillator
+    .connect(this.volume)
+    .connect(this.gain)
+    .connect(output);
     this.oscillator.start();
     this.start();
+  }
+
+  update () {
+    
   }
 
   start () {
     let {currentTime} = this.context;
     this.volume.gain.cancelScheduledValues(currentTime + this.easing);
     this.volume.gain.setValueAtTime(0, currentTime + this.easing);
-    this.volume.gain.linearRampToValueAtTime(0.8, currentTime + this.envelope.attack + this.easing);
+    this.volume.gain.linearRampToValueAtTime(1, currentTime + this.envelope.attack + this.easing);
     this.volume.gain.linearRampToValueAtTime(this.envelope.sustain, currentTime + this.envelope.attack + this.envelope.decay + this.easing);
   }
 

@@ -36,9 +36,10 @@ export default class Synthesizer {
     this.filter.type = this.settings.filter.type;
     this.master.gain.value = this.settings.general.master_gain;
 
-    for (let osc of this.nodes) {
-      osc.oscillator.type = this.settings.osc.wave
-    }
+    this.nodes.forEach((osc: Oscillator) => {
+      osc.oscillator.type = this.settings.osc.wave;
+      osc.gain.gain.value = this.settings.osc.gain;
+    })
   }
 
   noteOn (midiNumber: number) {
