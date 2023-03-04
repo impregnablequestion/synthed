@@ -7,17 +7,25 @@ export default class Synthesizer {
   nodes: Oscillator[];
   master: GainNode;
   filter: BiquadFilterNode;
+  limiter: DynamicsCompressorNode;
 
   constructor (context: AudioContext, settings: Settings) {
     this.context = context;
     this.settings = settings;
     this.nodes = []
 
-    // making audio graph
+    // settings up nodes
 
     this.filter = this.context.createBiquadFilter();
     this.master = this.context.createGain();
-    this.filter.connect(this.master).connect(this.context.destination)
+    this.limiter = this.context.createDynamicsCompressor();
+
+    // making a graph
+
+    this.filter
+    .connect(this.master)
+    .connect(this.limiter)
+    .connect(this.context.destination);
     // this.master.connect(this.context.destination)
 
     this.refresh()

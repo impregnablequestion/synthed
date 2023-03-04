@@ -8,7 +8,7 @@ const preset1: Settings = {
   filter: {
     frequency: 15000,
     type: "lowpass",
-    q: 0.3
+    q: 1000
   },
   envelope: {
     attack: 0.1,
