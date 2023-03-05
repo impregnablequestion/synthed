@@ -31,6 +31,7 @@ type Params = keyof FilterParams | keyof OscParams | keyof GeneralParams | keyof
 
 
 type Settings = {
+  id: number,
   name: string,
   tags: string,
   osc: OscParams,
