@@ -12,10 +12,18 @@ import javax.persistence.*;
 @Table(name = "presets")
 public class Preset {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "tags")
+    private String tags;
 
     @JsonIgnoreProperties("preset")
     @OneToOne(mappedBy = "preset", cascade = CascadeType.ALL)
@@ -37,7 +45,9 @@ public class Preset {
     @PrimaryKeyJoinColumn()
     private Envelope envelope;
 
-    public Preset(Osc osc, General general, Filter filter, Envelope envelope) {
+    public Preset(String name, String tags, Osc osc, General general, Filter filter, Envelope envelope) {
+        this.name = name;
+        this.tags = tags;
         this.osc = osc;
         this.general = general;
         this.filter = filter;
@@ -45,7 +55,6 @@ public class Preset {
     }
 
     public Preset () {
-
     }
 
     public Long getId() {
@@ -62,7 +71,6 @@ public class Preset {
 
     public void setOsc(Osc osc) {
         this.osc = osc;
-        this.osc.setPreset(this);
     }
 
     public General getGeneral() {
@@ -71,7 +79,6 @@ public class Preset {
 
     public void setGeneral(General general) {
         this.general = general;
-        this.general.setPreset(this);
     }
 
     public Filter getFilter() {
@@ -80,7 +87,6 @@ public class Preset {
 
     public void setFilter(Filter filter) {
         this.filter = filter;
-        this.filter.setPreset((this));
     }
 
     public Envelope getEnvelope() {
@@ -89,6 +95,16 @@ public class Preset {
 
     public void setEnvelope(Envelope envelope) {
         this.envelope = envelope;
+    }
+    public void initParams(Osc osc, General general, Filter filter, Envelope envelope) {
+        this.osc = osc;
+        this.general = general;
+        this.filter = filter;
+        this.envelope = envelope;
+
+        this.osc.setPreset(this);
+        this.general.setPreset(this);
+        this.filter.setPreset(this);
         this.envelope.setPreset(this);
     }
 }

@@ -30,10 +30,7 @@ public class PresetController {
     public ResponseEntity savePreset(@RequestBody Preset preset) {
 
 //        giving the envelopes the preset_id so that they can be saved
-        preset.setEnvelope(preset.getEnvelope());
-        preset.setFilter(preset.getFilter());
-        preset.setOsc(preset.getOsc());
-        preset.setGeneral(preset.getGeneral());
+        preset.initParams(preset.getOsc(), preset.getGeneral(), preset.getFilter(), preset.getEnvelope());
         presetRepo.save(preset);
         return new ResponseEntity(preset, HttpStatus.CREATED);
     }
@@ -45,16 +42,11 @@ public class PresetController {
         return new ResponseEntity(preset, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/presets/{id}")
+    @PutMapping(value = "/presets/{id}")
     public ResponseEntity updatePreset(@PathVariable Long id, @RequestBody Preset preset) {
         Preset toUpdate = presetRepo.findById(id).get();
-        toUpdate.setEnvelope(preset.getEnvelope());
-        toUpdate.setOsc(preset.getOsc());
-        toUpdate.setGeneral(preset.getGeneral());
-        toUpdate.setFilter(preset.getFilter());
-
+        toUpdate.initParams(preset.getOsc(), preset.getGeneral(), preset.getFilter(), preset.getEnvelope());
         presetRepo.save(toUpdate);
-
         return new ResponseEntity(toUpdate, HttpStatus.OK);
     }
 }
