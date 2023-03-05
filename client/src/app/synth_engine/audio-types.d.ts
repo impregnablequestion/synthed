@@ -1,5 +1,5 @@
 type Waveform = "sine" | "triangle" | "square" | "sawtooth"
-type FilterType = "lowpass" | "highpass"
+type FilterType = "lowpass" | "highpass" | "bandpass" | "notch"
 
 type EnvelopeParams = {
   attack: number,
@@ -27,7 +27,7 @@ type GeneralParams = {
   master_gain: number
 }
 
-type Params = FilterParams | OscParams | FilterParams | EnvelopeParams
+type Params = keyof FilterParams | keyof OscParams | keyof GeneralParams | keyof EnvelopeParams
 
 
 type Settings = {

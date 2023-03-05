@@ -3,12 +3,12 @@ const preset1: Settings = {
     wave: "sine",
     coarse_tune: 0,
     fine_tune: 0,
-    gain: 0
+    gain: 1
   },
   filter: {
     frequency: 15000,
     type: "lowpass",
-    q: 0.3
+    q: 1000
   },
   envelope: {
     attack: 0.1,

@@ -28,6 +28,7 @@ const VertSlider = ({module, param, min, max, step}: SliderProps) => {
           WebkitAppearance: 'slider-vertical',
         },
       }}
+      size="small"
       orientation="vertical"
       step={step}
       min={min}

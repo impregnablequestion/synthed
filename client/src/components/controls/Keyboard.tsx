@@ -34,7 +34,7 @@ const Keyboard = () => {
     noteRange={{first:firstNote, last: lastNote}}
     playNote={handlePlayNote}
     stopNote={handleStopNote}
-    width={1000}
+    width={700}
     keyboardShortcuts={keyboardShortcuts}
     />
   )

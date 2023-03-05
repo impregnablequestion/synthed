@@ -1,22 +1,22 @@
 import './App.css';
-
-import MasterGainSlider from './components/display_components/MasterGainSlider';
-import WaveSelector from './components/display_components/WaveSelector';
-import Keyboard from './components/controls/Keyboard';
-import FilterFreqSlider from './components/display_components/FilterFreqSlider';
-import VertSlider from './components/controls/VerticalSlider';
-import HorizontalSlider from './components/controls/HorizontalSlider';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Welcome from './components/Welcome';
+import LearnContainer from './containers/LearnContainer';
+import PlayContainer from './containers/PlayContainer';
+import Error from './components/Error';
 
 function App() {
 
   return (
     <div className="App">
-      <Keyboard/>
-      <WaveSelector />
-      <MasterGainSlider />
-      <FilterFreqSlider />
-      <VertSlider module='general' param="master_gain"  min={0} max={1} step={0.05}/>
-      <HorizontalSlider module='general' param="master_gain"  min={0} max={1} step={0.05}/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Welcome/>}/>
+          <Route path="/learn" element={<LearnContainer/>}/>
+          <Route path="/play" element={<PlayContainer/>}/>
+          <Route path="*" element={<Error/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }

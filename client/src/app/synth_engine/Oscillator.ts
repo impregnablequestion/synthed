@@ -8,6 +8,7 @@ export default class Oscillator {
   volume: GainNode;
   easing: number;
   midiNumber: number;
+  gain: GainNode;
 
   constructor (
 
@@ -20,35 +21,55 @@ export default class Oscillator {
     ) {
 
     this.context = context;
-    this.oscillator = context.createOscillator();
-    this.oscillator.frequency.value = midiToFreq(midiNumber);
-    this.oscillator.type = settings.wave;
-    this.midiNumber = midiNumber;
-    this.envelope = envelope;
-    this.easing = 0.008;
     this.volume = context.createGain();
-    this.volume.gain.value = 0; 
+    this.gain = context.createGain();
+    this.oscillator = context.createOscillator();
 
-    this.oscillator.connect(this.volume).connect(output);
-    this.oscillator.start();
+    // initialise constants
+
+    this.easing = 0.003;
+    this.midiNumber = midiNumber;
+    this.volume.gain.value = 0;
+    this.envelope = envelope;
+    this.update(settings);
+    
+
+    // connect the audio graph
+    this.oscillator
+    .connect(this.volume)
+    .connect(this.gain)
+    .connect(output);
+
     this.start();
+    this.oscillator.start();
+  }
+
+  // runs when the state of the synthesizer changes
+
+  update (settings: OscParams) {
+    this.oscillator.frequency.value = midiToFreq(this.midiNumber+settings.coarse_tune)
+    this.oscillator.detune.value = settings.fine_tune;
+    this.oscillator.type = settings.wave;
+    this.gain.gain.value = settings.gain;
   }
 
   start () {
     let {currentTime} = this.context;
-    this.volume.gain.cancelScheduledValues(currentTime + this.easing);
-    this.volume.gain.setValueAtTime(0, currentTime + this.easing);
-    this.volume.gain.linearRampToValueAtTime(0.8, currentTime + this.envelope.attack + this.easing);
+    this.volume.gain.cancelScheduledValues(currentTime);
+    this.volume.gain.setValueAtTime(0, currentTime);
+    this.volume.gain.linearRampToValueAtTime(1, currentTime + this.envelope.attack + this.easing);
+    this.volume.gain.setValueAtTime(1, currentTime + this.envelope.attack +  this.easing);
     this.volume.gain.linearRampToValueAtTime(this.envelope.sustain, currentTime + this.envelope.attack + this.envelope.decay + this.easing);
   }
 
   stop () {
     let {currentTime} = this.context;
-    this.volume.gain.cancelScheduledValues(currentTime + this.easing);
+    this.volume.gain.cancelScheduledValues(currentTime);
     // this.volume.gain.setTargetAtTime(0, currentTime , this.envelope.release + this.easing);
-    this.volume.gain.linearRampToValueAtTime(0, currentTime + this.envelope.release + this.easing)
+    this.volume.gain.linearRampToValueAtTime(0.001, currentTime + this.envelope.release + this.easing)
+    this.oscillator.stop(currentTime + this.envelope.release + this.easing);
     setTimeout(() => {
       this.oscillator.disconnect();
-    }, 5000);
+    }, 10000);
   }
 }

@@ -17,17 +17,23 @@ const HorizontalSlider = ({module, param, min, max, step}: SliderProps) => {
     }));
   }
 
-  const marks = [{value: max, label: "0db"}, {value: 0, label: "-∞"}]
+  const getLabel = (value: number) => {
+    return `${value}`
+  }
+
+  const marks = [{value: max, label: getLabel(max)}, {value: min, label: getLabel(min)}]
 
   return (
     <Slider
       sx={{
-        width: 200
+        width: 200,
+        color: 'black'
       }}
+      size="small"
       step={step}
       min={min}
       max={max}
-      // marks={marks}
+      marks={marks}
       value={selected[module as keyof Settings][param as keyof Params]}
       onChange={handleChange}
       aria-label={param}
