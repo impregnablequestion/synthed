@@ -65,8 +65,8 @@ export default class Oscillator {
   stop () {
     let {currentTime} = this.context;
     this.volume.gain.cancelScheduledValues(currentTime);
-    // this.volume.gain.setTargetAtTime(0, currentTime , this.envelope.release + this.easing);
-    this.volume.gain.linearRampToValueAtTime(0.001, currentTime + this.envelope.release + this.easing)
+    this.volume.gain.setValueAtTime(this.volume.gain.value, currentTime)
+    this.volume.gain.exponentialRampToValueAtTime(0.001, currentTime + this.envelope.release + this.easing)
     this.oscillator.stop(currentTime + this.envelope.release + this.easing);
     setTimeout(() => {
       this.oscillator.disconnect();

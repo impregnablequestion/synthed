@@ -47,16 +47,16 @@ const TypeSelector = ({ module, param }: TypeSelectorProps) => {
         aria-label={module + param}
       >
         <ToggleButton value="sine" aria-label="sine">
-          sine
+          sin
         </ToggleButton>
         <ToggleButton value="triangle" aria-label="triangle">
-          triangle
+          tri
         </ToggleButton>
         <ToggleButton value="square" aria-label="justified">
-          square
+          squ
         </ToggleButton>
         <ToggleButton value="sawtooth" aria-label="sawtooth">
-          sawtooth
+          saw
         </ToggleButton>
       </ToggleButtonGroup>
     );
@@ -70,16 +70,16 @@ const TypeSelector = ({ module, param }: TypeSelectorProps) => {
         aria-label={module + param}
       >
         <ToggleButton value="lowpass" aria-label="lowpass">
-          lowpass
+          lp
         </ToggleButton>
         <ToggleButton value="highpass" aria-label="highpass">
-          highpass
+          hp
         </ToggleButton>
         <ToggleButton value="bandpass" aria-label="bandpass">
-          bandpass
+          bp
         </ToggleButton>
         <ToggleButton value="notch" aria-label="notch">
-          notch
+          no
         </ToggleButton>
       </ToggleButtonGroup>
     );

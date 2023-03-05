@@ -18,11 +18,12 @@ export default class Synthesizer {
 
     let time = this.context.currentTime
 
-    // settings up nodes
+    // setting up nodes
 
     this.filter = this.context.createBiquadFilter();
     this.master = this.context.createGain();
-    this.limiter = this.context.createDynamicsCompressor();;
+    this.limiter = this.context.createDynamicsCompressor();
+
     this.limiter.threshold.setValueAtTime(-10, time);
     this.limiter.knee.setValueAtTime(2, time);
     this.limiter.ratio.setValueAtTime(18, time);
@@ -90,10 +91,6 @@ export default class Synthesizer {
       }
     });
     this.nodes = newNodes;
-  }
-
-  setWave(preset: Settings) {
-    this.settings = preset;
   }
 
   setParams(newSettings: Settings) {
