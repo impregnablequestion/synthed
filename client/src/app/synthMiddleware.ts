@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { change_param, play_note, stop_note } from "../features/synthSlice";
+import { change_param, load_preset, play_note, stop_note } from "../features/synthSlice";
 import { preset1 } from "./synth_engine/presets";
 import Synthesizer from "./synth_engine/Synthesizer";
 
@@ -45,5 +45,15 @@ synthMiddleware.startListening({
     console.log("Updated: ", newSettings);
     
     synth.setParams(newSettings);
+  }
+})
+
+synthMiddleware.startListening({
+  actionCreator: load_preset,
+  effect: (action) => {
+    console.log(synth.settings);
+    synth.setParams(action.payload);
+    console.log(synth.settings);
+    
   }
 })

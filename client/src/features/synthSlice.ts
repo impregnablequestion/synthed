@@ -33,11 +33,15 @@ export const synthSlice = createSlice({
     change_param: (state, action: PayloadAction<paramChange>) => {
       let {module, value, param} = action.payload
       state.settings[module as keyof Settings][param as keyof Params] = value
+    },
+
+    load_preset: (state, action: PayloadAction<Settings>) => {
+      state.settings = action.payload
     }
   },
 });
 
-export const { play_note, stop_note, change_param} = synthSlice.actions;
+export const { play_note, stop_note, change_param, load_preset} = synthSlice.actions;
 
 export const selectSettings = (state: RootState) => state.synth.settings;
 

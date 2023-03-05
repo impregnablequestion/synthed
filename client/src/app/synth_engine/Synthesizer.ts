@@ -25,7 +25,7 @@ export default class Synthesizer {
     this.limiter = this.context.createDynamicsCompressor();;
     this.limiter.threshold.setValueAtTime(-10, time);
     this.limiter.knee.setValueAtTime(2, time);
-    this.limiter.ratio.setValueAtTime(40, time);
+    this.limiter.ratio.setValueAtTime(18, time);
     this.limiter.attack.setValueAtTime(0.002, time);
     this.limiter.release.setValueAtTime(0.1, time);
 

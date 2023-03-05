@@ -1,4 +1,7 @@
 const preset1: Settings = {
+  id: 0,
+  name: "preset 1",
+  tags: "",
   osc: {
     wave: "sine",
     coarse_tune: 0,
@@ -24,11 +27,14 @@ const preset1: Settings = {
 }
 
 const preset2: Settings = {
+  id: 2,
+  name: "preset2",
+  tags: "",
   osc: {
     wave: "triangle",
     coarse_tune: 0,
     fine_tune: 0,
-    gain: 0
+    gain: 1
   },
   filter: {
     frequency: 15000,
