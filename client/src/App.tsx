@@ -4,8 +4,13 @@ import Welcome from './components/Welcome';
 import LearnContainer from './containers/LearnContainer';
 import PlayContainer from './containers/PlayContainer';
 import Error from './components/Error';
+import { useGetPresetsQuery, useGetPresetByIDQuery } from './app/services/presetsApi';
 
 function App() {
+
+  const { data, error, isLoading } = useGetPresetByIDQuery(1);
+
+  console.log(data, error, isLoading);
 
   return (
     <div className="App">

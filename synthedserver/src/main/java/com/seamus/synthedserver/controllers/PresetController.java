@@ -11,11 +11,11 @@ import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 public class PresetController {
     @Autowired
     PresetRepository presetRepo;
-
     @GetMapping(value = "/presets")
     public ResponseEntity<List<Preset>> getAllPresets(){
         return new ResponseEntity(presetRepo.findAll(), HttpStatus.OK);
