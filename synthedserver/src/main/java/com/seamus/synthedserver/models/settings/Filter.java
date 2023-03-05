@@ -21,6 +21,7 @@ public class Filter {
     private double frequency;
 
     @Column(name = "type")
+    @Enumerated(value = EnumType.STRING)
     private FilterType type;
 
     @Column(name = "q")

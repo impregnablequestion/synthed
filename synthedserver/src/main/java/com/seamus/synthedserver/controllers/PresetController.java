@@ -31,7 +31,6 @@ public class PresetController {
 
 //        giving the envelopes the preset_id so that they can be saved
         preset.initParams(preset.getOsc(), preset.getGeneral(), preset.getFilter(), preset.getEnvelope());
-        presetRepo.save(preset);
         return new ResponseEntity(preset, HttpStatus.CREATED);
     }
 
@@ -39,7 +38,7 @@ public class PresetController {
     public ResponseEntity deletePreset(@PathVariable Long id) {
         Optional<Preset> preset = presetRepo.findById(id);
         presetRepo.delete(preset.get());
-        return new ResponseEntity(preset, HttpStatus.OK);
+        return new ResponseEntity(preset.get(), HttpStatus.OK);
     }
 
     @PutMapping(value = "/presets/{id}")
