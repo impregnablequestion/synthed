@@ -1,4 +1,6 @@
 const preset1: Settings = {
+  name: "preset 1",
+  tags: "",
   osc: {
     wave: "sine",
     coarse_tune: 0,
@@ -24,6 +26,8 @@ const preset1: Settings = {
 }
 
 const preset2: Settings = {
+  name: "preset2",
+  tags: "",
   osc: {
     wave: "triangle",
     coarse_tune: 0,
