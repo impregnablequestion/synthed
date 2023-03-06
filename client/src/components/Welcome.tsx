@@ -9,6 +9,8 @@ const Welcome = () => {
     <div>
       <p>hi! welcome to...</p>
       <h1>synthed</h1>
+      <p>this is a <Sp>synth ed</Sp>ucation website</p>
+      <p>step by step, you can learn how a synthesizer works, <br/>and put it into practice at the end with a real synthesizer</p>
       <p>would you like to....</p>
       <OptionsContainer>
         <Link to="/learn">learn</Link>
@@ -24,4 +26,9 @@ const OptionsContainer = styled.div`
   display:flex;
   justify-content: space-around;
   padding: 10rem;
+`
+
+const Sp = styled.span`
+  font-weight: 700;
+  color: green
 `

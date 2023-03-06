@@ -5,3 +5,7 @@ type SliderProps = {
   max: number;
   step: number;
 }
+
+type ChapterProps = {
+  next: string;
+}
