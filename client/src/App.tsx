@@ -9,6 +9,7 @@ import { useGetPresetByIDQuery } from './app/services/presetsApi';
 import { useEffect } from 'react';
 import { load_preset } from './features/synthSlice';
 import One1 from './components/learn_components/chapters/One1';
+import One2 from './components/learn_components/chapters/One2';
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
           <Route path="learn" element={<LearnContainer/>}>
             <Route index element={<One1 next="2"/>}/>
             <Route path="1" element={<One1 next="2"/>}/>
-            <Route path="2" element={<h2>2</h2>}/>
+            <Route path="2" element={<One2 next="3"/>}/>
             <Route path="3" element={<h2>3</h2>}/>
             <Route path="4" element={<h2>4</h2>}/>
             <Route path="*" element={<Error/>}/>

@@ -5,9 +5,9 @@ import { load_preset } from '../../../features/synthSlice';
 import XY from '../../controls/XY';
 import {Text, Nav, Play, Chapter} from '../chapterStyles'
 
-const presetOne1: Settings = {
+const presetOne2: Settings = {
   id: 0,
-  name: "1-1",
+  name: "1-2",
   tags: "",
   osc: {
     wave: "square",
@@ -33,19 +33,19 @@ const presetOne1: Settings = {
   }
 }
 
-const One1 = ({ next }: ChapterProps) => {
+const One2 = ({ next }: ChapterProps) => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(()=>{
-    dispatch(load_preset(presetOne1))
+    dispatch(load_preset(presetOne2))
   },[dispatch])
 
   return (
     <Chapter>
       <Text>
-      <h2>1-1: Oscillators</h2>
+      <h2>1-2: Volume and Frequency</h2>
       <p>In spite of being a long word, an Oscillator is simply something that generates sound. <br/>They are the main building blocks of most synthesizers: in many ways an Oscillator can be considered a synthesizer all on its own!</p>
       </Text>
       <Play>
@@ -57,6 +57,7 @@ const One1 = ({ next }: ChapterProps) => {
         />
       </Play>
       <Nav>
+        <button onClick={()=>navigate(-1)}>previous</button>
         <button onClick={() => navigate(next)}>next</button>
       </Nav>
     </Chapter>
@@ -64,4 +65,4 @@ const One1 = ({ next }: ChapterProps) => {
 }
 
 
-export default One1
+export default One2;

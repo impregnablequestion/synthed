@@ -1,11 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+
+  const navigate = useNavigate()
+
   return (
     <div>
-
-      <Link to="/">home</Link>
+      <button onClick={()=>{navigate("../")}}>home</button>
+      <p>made by séamus ryan</p>
     </div>
   )
 }
