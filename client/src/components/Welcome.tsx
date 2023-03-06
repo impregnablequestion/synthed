@@ -10,10 +10,10 @@ const Welcome = () => {
       <p>hi! welcome to...</p>
       <h1>synthed</h1>
       <p>this is a <Sp>synth ed</Sp>ucation website</p>
-      <p>step by step, you can learn how a synthesizer works, <br/>and put it into practice at the end with a real synthesizer</p>
+      <p>step by step, you can learn how a synthesizer works, <br/>and put it into practice at the end in the play view!</p>
       <p>would you like to....</p>
       <OptionsContainer>
-        <Link to="/learn">learn</Link>
+        <Link to="/learn/1">learn</Link>
         <Link to="/play">play</Link>
       </OptionsContainer>
     </div>

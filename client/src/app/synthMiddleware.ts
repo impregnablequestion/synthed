@@ -51,8 +51,8 @@ synthMiddleware.startListening({
 synthMiddleware.startListening({
   actionCreator: load_preset,
   effect: (action) => {
-    console.log(synth.settings);
+    // console.log(synth.settings);
     synth.setParams(action.payload);
-    console.log(synth.settings);
+    // console.log(synth.settings);
   }
 })

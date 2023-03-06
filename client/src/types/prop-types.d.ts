@@ -21,3 +21,7 @@ type XYProps = {
   yMax: number;
   note: number;
 }
+
+type NoteButtonProps = {
+  note: number;
+}

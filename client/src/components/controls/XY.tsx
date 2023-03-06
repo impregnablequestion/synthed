@@ -37,10 +37,9 @@ const XY = ({xModule, xParam, yModule, yParam, xMin, xMax, yMin, yMax, note}: XY
     localMousePos,
     dispatch,
     xModule, yModule,
-    xModule, yParam,
+    xParam, yParam,
     xScale, yScale,
   ])
-
   
   const handleMouseDown = () => {
     dispatch(play_note(note));
@@ -68,11 +67,11 @@ const Square = styled.div`
   color: white;
   aspect-ratio: 1/1;
   width: 200px;
-  border: 5px solid blue;
+  border: 1px solid blue;
   border-radius: 1ex;
 
   &:hover{
-    background-color: skyblue;
+    opacity: 0.3;
   }
 `;
 

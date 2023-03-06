@@ -4,11 +4,11 @@ import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import NoteButton from '../../controls/NoteButton';
 import { Text, Nav, Play, Chapter } from '../chapterStyles'
-import HorizontalSlider from '../../controls/HorizontalSlider';
+import TypeSelector from '../../controls/TypeSelector';
 
-const presetOne2: Settings = {
+const presetOne3: Settings = {
   id: 0,
-  name: "1-2",
+  name: "1-3",
   tags: "",
   osc: {
     wave: "sine",
@@ -34,33 +34,27 @@ const presetOne2: Settings = {
   }
 }
 
-const One2 = ({ next }: ChapterProps) => {
+const One3 = ({ next }: ChapterProps) => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(load_preset(presetOne2))
+    dispatch(load_preset(presetOne3))
   }, [dispatch])
 
   return (
     <Chapter>
       <Text>
-        <h2>1-2: Frequency</h2>
-        <p>For now, the most important thing you need to know about oscillators is that they make sound by repeating an action at a particular frequency</p>
-        <p>The more often the action is repeated, the higher we perceive the note to be!</p>
+        <h2>1-3: Waveforms</h2>
+        <p>The sound quality of an oscillator is dependend on what type of waveform it creates!</p>
+        <p>Try switching between the waveforms provided below and listen to the how the sound changes</p>
       </Text>
       <Play>
-        <p>Adjust the sliders and listen to how it affects the sound</p>
+        <TypeSelector
+            module='osc' param='wave'
+          />
         <NoteButton note={50} />
-        <p>coarse tune</p>
-        <HorizontalSlider
-          module='osc' param='coarse_tune' min={-24} max={24} step={0.1}
-        />
-        <p>fine tune</p>
-        <HorizontalSlider
-          module='osc' param='fine_tune' min={-100} max={100} step={1}
-        />
       </Play>
       <Nav>
         <button onClick={() => navigate(-1)}>previous</button>
@@ -71,4 +65,4 @@ const One2 = ({ next }: ChapterProps) => {
 }
 
 
-export default One2;
+export default One3;

@@ -21,9 +21,9 @@ const presetOne1: Settings = {
     q: 1000
   },
   envelope: {
-    attack: 0.2,
+    attack: 0.05,
     decay: 0.2,
-    sustain: 0.8,
+    sustain: 0.2,
     release: 0.7,
   },
   general: {
@@ -33,7 +33,7 @@ const presetOne1: Settings = {
   }
 }
 
-const One1 = ({ next }: ChapterProps) => {
+const One4 = ({ next }: ChapterProps) => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -45,14 +45,12 @@ const One1 = ({ next }: ChapterProps) => {
   return (
     <Chapter>
       <Text>
-      <h2>1-1: Oscillators</h2>
-      <p>In spite of being a long word, an Oscillator is simply something that generates sound. <br/>They are the main building blocks of most synthesizers: 
-      in many ways an Oscillator can be considered a synthesizer all on its own!</p>
-      <p></p>
+      <h2>Recap: Oscillators</h2>
       </Text>
       <Play>
-        <p>Click this square to make some sound!</p>
-        <p>(make sure to adjust the master volume slider to your liking!)</p>
+        <p>Remember this square? Well, click it again and try moving your mouse around in the X and Y directions</p>
+        <p>The x-axis is mapped to the oscillator's coarse tune, while the y-axis is mapped to the volume</p>
+        <p>You can get some pretty fun sounds with just an oscillator and a good attitude</p>
         <XY
         xModule={"osc"} xParam={"coarse_tune"} xMin={-24} xMax={24}
         yModule={"osc"} yParam={"gain"} yMin={0} yMax={1}
@@ -67,4 +65,4 @@ const One1 = ({ next }: ChapterProps) => {
 }
 
 
-export default One1
+export default One4
