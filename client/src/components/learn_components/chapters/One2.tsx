@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import NoteButton from '../../controls/NoteButton';
-import { Text, Nav, Play, Chapter } from '../chapterStyles'
+import { Text, Play, Chapter } from '../chapterStyles'
 import HorizontalSlider from '../../controls/HorizontalSlider';
 import { preset1 } from '../../../app/synth_engine/presets';
+import BottomNav from '../../BottomNav';
 
-const One2 = ({ next }: ChapterProps) => {
+const One2 = ({ next, nextLabel }: ChapterProps) => {
 
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -35,10 +34,7 @@ const One2 = ({ next }: ChapterProps) => {
           module='osc' param='fine_tune' min={-100} max={100} step={1}
         />
       </Play>
-      <Nav>
-        <button onClick={() => navigate(-1)}>back</button>
-        <button onClick={() => navigate(next)}>next: wave types</button>
-      </Nav>
+      <BottomNav previous next={next} nextLabel={nextLabel}/>
     </Chapter>
   )
 }

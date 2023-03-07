@@ -1,9 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router';
-import { Text, Nav, Play, Chapter } from "../chapterStyles";
+import { Text, Play, Chapter } from "../chapterStyles";
+import BottomNav from '../../BottomNav';
 
-const End = ({next}: ChapterProps) => {
-  const navigate = useNavigate();
+const End = ({next, nextLabel}: ChapterProps) => {
 
   return (
     <Chapter>
@@ -14,9 +13,7 @@ const End = ({next}: ChapterProps) => {
       </Text>
       <Play>
       </Play>
-      <Nav>
-        <button onClick={() => { navigate(next) }}>go to play!</button>
-      </Nav>
+      <BottomNav previous next={next} nextLabel={nextLabel}/>
     </Chapter>
   )
 }

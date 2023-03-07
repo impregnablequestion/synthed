@@ -27,7 +27,6 @@ const HorizontalSlider = ({module, param, min, max, step}: SliderProps) => {
     <Slider
       sx={{
         width: 200,
-        color: 'black'
       }}
       size="small"
       step={step}

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../../../app/hooks';
-import { change_param, load_preset } from '../../../features/synthSlice';
-import {Text, Nav, Play, Chapter} from '../chapterStyles'
+import { load_preset } from '../../../features/synthSlice';
+import {Text, Play, Chapter} from '../chapterStyles'
 import { preset1 } from '../../../app/synth_engine/presets';
 import HorizontalSlider from '../../controls/HorizontalSlider';
 import Keyboard from '../../controls/Keyboard';
+import BottomNav from '../../BottomNav';
 
-const Three1 = ({ next }: ChapterProps) => {
-  const navigate = useNavigate();
+const Three1 = ({ next, nextLabel }: ChapterProps) => {
+
   const dispatch = useAppDispatch();
 
   useEffect(()=>{
@@ -34,10 +34,7 @@ const Three1 = ({ next }: ChapterProps) => {
         <HorizontalSlider module='envelope' param='attack' min={0.005} max={2} step={0.01}/>
         <Keyboard first="c4" last="g4" width={300}/>
       </Play>
-      <Nav>
-        <button onClick={() => navigate(-1)}>back</button>
-        <button onClick={() => navigate(next)}>next: frequency</button>
-      </Nav>
+      <BottomNav previous next={next} nextLabel={nextLabel}/>
     </Chapter>
   )
 }

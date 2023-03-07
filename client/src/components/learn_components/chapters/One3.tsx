@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import NoteButton from '../../controls/NoteButton';
-import { Text, Nav, Play, Chapter } from '../chapterStyles'
+import { Text, Play, Chapter } from '../chapterStyles'
 import TypeSelector from '../../controls/TypeSelector';
 import { preset1 } from '../../../app/synth_engine/presets';
+import BottomNav from '../../BottomNav';
 
 
-const One3 = ({ next }: ChapterProps) => {
+const One3 = ({ next, nextLabel }: ChapterProps) => {
 
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -30,10 +29,7 @@ const One3 = ({ next }: ChapterProps) => {
           />
         <NoteButton note={50} />
       </Play>
-      <Nav>
-        <button onClick={() => navigate(-1)}>back</button>
-        <button onClick={() => navigate(next)}>next: recap</button>
-      </Nav>
+      <BottomNav previous next={next} nextLabel={nextLabel}/>
     </Chapter>
   )
 }

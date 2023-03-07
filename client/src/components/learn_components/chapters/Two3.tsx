@@ -1,15 +1,15 @@
-import { useNavigate } from 'react-router'
 import { useEffect } from 'react';
 import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import { preset2 } from '../../../app/synth_engine/presets';
-import {Text, Nav, Play, Chapter} from '../chapterStyles';
+import {Text, Play, Chapter} from '../chapterStyles';
 import NoteButton from '../../controls/NoteButton';
 import HorizontalSlider from '../../controls/HorizontalSlider';
 import TypeSelector from '../../controls/TypeSelector';
+import BottomNav from '../../BottomNav';
 
-const Two3 = ({ next }: ChapterProps) => {
-  const navigate = useNavigate();
+const Two3 = ({ next, nextLabel }: ChapterProps) => {
+
   const dispatch = useAppDispatch();
 
   useEffect(()=>{
@@ -33,10 +33,7 @@ const Two3 = ({ next }: ChapterProps) => {
         <p>filter type</p>
         <TypeSelector module='filter' param='type'/>
       </Play>
-      <Nav>
-        <button onClick={() => navigate(-1)}>back</button>
-        <button onClick={() => navigate(next)}>next: resonance</button>
-      </Nav>
+      <BottomNav previous next={next} nextLabel={nextLabel}/>
     </Chapter>
   )
 }

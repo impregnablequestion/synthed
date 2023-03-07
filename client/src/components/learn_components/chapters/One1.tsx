@@ -1,10 +1,8 @@
-import { useNavigate } from 'react-router'
+import BottomNav from '../../BottomNav';
 import XY from '../../controls/XY';
-import { Text, Nav, Play, Chapter } from '../chapterStyles'
+import { Text, Play, Chapter } from '../chapterStyles'
 
-const One1 = ({ next }: ChapterProps) => {
-
-  const navigate = useNavigate();
+const One1 = ({ next, nextLabel }: ChapterProps) => {
 
   return (
     <Chapter>
@@ -23,9 +21,7 @@ const One1 = ({ next }: ChapterProps) => {
           note={38}
         />
       </Play>
-      <Nav>
-        <button onClick={() => navigate(next)}>next: frequency</button>
-      </Nav>
+      <BottomNav next={next} nextLabel={nextLabel}/>
     </Chapter>
   )
 }
