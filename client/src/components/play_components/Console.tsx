@@ -4,14 +4,14 @@ import Keyboard from '../controls/Keyboard'
 import General from './General' 
 import Presets from './Presets'
 
-const Console = ({data, isLoading, error}: PresetProps) => {
+const Console = () => {
   return (
     <ConsoleContainer>
       <KeyboardContainer>
         <General/>
         <Keyboard first='c3' last='e4' width={700}/>
       </KeyboardContainer>
-      <Presets data={data} isLoading={isLoading} error={error}/>
+      <Presets/>
     </ConsoleContainer>
   )
 }

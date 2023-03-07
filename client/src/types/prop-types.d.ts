@@ -40,7 +40,5 @@ type BottomNavProps = {
 }
 
 type PresetProps = {
-  data: Settings[] | undefined;
-  isLoading: boolean;
-  error: FetchBaseQueryError | undefined | SerializedError;
+  preset: Settings;
 }

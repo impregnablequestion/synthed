@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import { Button, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { useAppSelector } from '../../app/hooks'
@@ -41,7 +42,7 @@ const NewPreset = () => {
   }
 
   return (
-    <div>
+    <PresetForm>
       <TextField 
       id="name"
       label="preset name"
@@ -50,6 +51,7 @@ const NewPreset = () => {
       size='small'
       value={name}
       onChange={handleNameChange}
+      inputProps={{maxLength: 14}}
       />
       <TextField
       id="tag"
@@ -59,10 +61,17 @@ const NewPreset = () => {
       size='small'
       value={tag}
       onChange={handleTagChange}
+      inputProps={{maxLength: 14}}
       />
-      <Button variant='outlined' onClick={handleSubmit}>save current settings</Button>
-    </div>
+      <Button variant='outlined' onClick={handleSubmit}>save settings</Button>
+    </PresetForm>
   )
 }
 
 export default NewPreset
+
+const PresetForm = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`

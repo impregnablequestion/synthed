@@ -1,32 +1,37 @@
 import styled from '@emotion/styled'
 import React from 'react'
+import { useGetPresetsQuery } from '../../app/services/presetsApi'
 import NewPreset from './NewPreset'
+import PresetCard from './PresetCard'
 
-const Presets = ({data, isLoading, error}: PresetProps) => {
+const Presets = () => {
 
-  const presets = data
+  const { data, isLoading, error } = useGetPresetsQuery();
+
+
 
   if (isLoading) {
-    return(
+    return (
       <p>Loading presets</p>
     )
   } else if (error) {
-    return(
+    return (
       <p>Presets failed to load</p>
     )
   } else {
 
-    console.log(presets);
+    const presets = data?.map((preset: Settings) => {
+      return (<PresetCard preset={preset} key={preset.id} />)
+    })
 
-    return(
+    return (
       <PresetBox>
-        <NewPreset/>
-        <ul>
-          {presets?.map((preset: Settings) => {
-            return(<li key={preset.id}>{preset.name}</li>)
-          })}
-        </ul>
-
+        <NewPreset />
+        <PresetList>
+          <ul>
+            {presets}
+          </ul>
+        </PresetList>
       </PresetBox>
     )
   }
@@ -36,6 +41,8 @@ export default Presets;
 
 const PresetBox = styled.div`
   height: 13rem;
-  border: 1px solid black;
 `
 
+const PresetList = styled.div`
+  overflow: scroll;
+`

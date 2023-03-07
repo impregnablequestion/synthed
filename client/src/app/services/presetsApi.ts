@@ -10,6 +10,7 @@ export const presetsApi = createApi({
 
     getPresets: builder.query<presetsResponse, void>({
       query: () => "presets/",
+      providesTags: [{type: 'Preset', id: 'LIST'}]
     }),
 
     getPresetByID: builder.query<Settings, number>({
@@ -30,7 +31,7 @@ export const presetsApi = createApi({
         url: `presets/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{type: 'Preset', id}]
+      invalidatesTags: (result, error, id) => [{type: 'Preset', id: 'LIST'}]
     })
   }),
 })
