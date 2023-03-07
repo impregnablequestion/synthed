@@ -3,7 +3,7 @@ const preset1: Settings = {
   name: "preset 1",
   tags: "",
   osc: {
-    wave: "sine",
+    wave: "triangle",
     coarse_tune: 0,
     fine_tune: 0,
     gain: 1
@@ -14,7 +14,7 @@ const preset1: Settings = {
     q: 0.1
   },
   envelope: {
-    attack: 0.1,
+    attack: 0.001,
     decay: 0.05,
     sustain: 0.4,
     release: 0.6,

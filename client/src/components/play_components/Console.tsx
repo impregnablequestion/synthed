@@ -8,7 +8,7 @@ const Console = () => {
   return (
     <ConsoleContainer>
       <General/>
-      <Keyboard first='c3' last='e4'/>
+      <Keyboard first='c3' last='e4' width={700}/>
       {/* <Presets/> */}
     </ConsoleContainer>
   )

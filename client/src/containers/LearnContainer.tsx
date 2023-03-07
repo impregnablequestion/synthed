@@ -15,6 +15,7 @@ import Three1 from '../components/learn_components/chapters/Three1';
 import Three2 from '../components/learn_components/chapters/Three2';
 import Three3 from '../components/learn_components/chapters/Three3';
 import Three4 from '../components/learn_components/chapters/Three4';
+import End from '../components/learn_components/chapters/End';
 
 const LearnContainer = () => {
 
@@ -35,7 +36,8 @@ const LearnContainer = () => {
         <Route path="9" element={<Three1 next="/learn/10" />} />
         <Route path="10" element={<Three2 next="/learn/11" />} />
         <Route path="11" element={<Three3 next="/learn/12" />} />
-        <Route path="12" element={<Three4 next="/play" />} />
+        <Route path="12" element={<Three4 next="/learn/end" />} />
+        <Route path="end" element={<End next="/play" />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <button onClick={() => navigate("../")}>home</button>

@@ -29,4 +29,5 @@ type NoteButtonProps = {
 type KeyboardProps = {
   first: string;
   last: string;
+  width: number;
 }

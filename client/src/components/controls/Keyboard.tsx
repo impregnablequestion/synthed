@@ -7,7 +7,7 @@ import { play_note, stop_note } from '../../features/synthSlice';
 // TODO: Wire keyboard up to audio engine
 
 
-const Keyboard = ({first, last}: KeyboardProps) => {
+const Keyboard = ({first, last, width}: KeyboardProps) => {
 
   const dispatch = useAppDispatch();
 
@@ -34,7 +34,7 @@ const Keyboard = ({first, last}: KeyboardProps) => {
     noteRange={{first:firstNote, last: lastNote}}
     playNote={handlePlayNote}
     stopNote={handleStopNote}
-    width={700}
+    width={width}
     keyboardShortcuts={keyboardShortcuts}
     />
   )
