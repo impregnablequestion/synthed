@@ -5,34 +5,8 @@ import { load_preset } from '../../../features/synthSlice';
 import NoteButton from '../../controls/NoteButton';
 import { Text, Nav, Play, Chapter } from '../chapterStyles'
 import TypeSelector from '../../controls/TypeSelector';
+import { preset1 } from '../../../app/synth_engine/presets';
 
-const presetOne3: Settings = {
-  id: 0,
-  name: "1-3",
-  tags: "",
-  osc: {
-    wave: "sine",
-    coarse_tune: 0,
-    fine_tune: 0,
-    gain: 1
-  },
-  filter: {
-    frequency: 15000,
-    type: "lowpass",
-    q: 1000
-  },
-  envelope: {
-    attack: 0.2,
-    decay: 0.2,
-    sustain: 0.8,
-    release: 0.7,
-  },
-  general: {
-    voices: 4,
-    octave: 0,
-    master_gain: 0.6
-  }
-}
 
 const One3 = ({ next }: ChapterProps) => {
 
@@ -40,7 +14,7 @@ const One3 = ({ next }: ChapterProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(load_preset(presetOne3))
+    dispatch(load_preset(preset1))
   }, [dispatch])
 
   return (

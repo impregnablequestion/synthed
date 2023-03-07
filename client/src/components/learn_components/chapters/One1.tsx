@@ -1,46 +1,10 @@
-import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
-import { useAppDispatch } from '../../../app/hooks';
-import { load_preset } from '../../../features/synthSlice';
 import XY from '../../controls/XY';
 import {Text, Nav, Play, Chapter} from '../chapterStyles'
-
-const presetOne1: Settings = {
-  id: 0,
-  name: "1-1",
-  tags: "",
-  osc: {
-    wave: "square",
-    coarse_tune: 0,
-    fine_tune: 0,
-    gain: 1
-  },
-  filter: {
-    frequency: 15000,
-    type: "lowpass",
-    q: 1000
-  },
-  envelope: {
-    attack: 0.2,
-    decay: 0.2,
-    sustain: 0.8,
-    release: 0.7,
-  },
-  general: {
-    voices: 4,
-    octave: 0,
-    master_gain: 0.6
-  }
-}
 
 const One1 = ({ next }: ChapterProps) => {
 
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
-  useEffect(()=>{
-    dispatch(load_preset(presetOne1))
-  },[dispatch])
 
   return (
     <Chapter>
