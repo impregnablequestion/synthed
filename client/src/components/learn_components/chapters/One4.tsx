@@ -3,7 +3,7 @@ import { useAppDispatch } from '../../../app/hooks';
 import { preset2 } from '../../../app/synth_engine/presets';
 import { load_preset } from '../../../features/synthSlice';
 import XY from '../../controls/XY';
-import { Text, Nav, Play, Chapter } from '../chapterStyles';
+import { Text, Play, Chapter } from '../chapterStyles';
 import BottomNav from '../../BottomNav';
 
 const One4 = ({ next, nextLabel }: ChapterProps) => {

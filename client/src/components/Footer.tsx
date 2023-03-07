@@ -1,11 +1,8 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import BottomNav from './BottomNav'
 
 const Footer = () => {
-
-  const navigate = useNavigate()
 
   return (
     <FooterContainer>

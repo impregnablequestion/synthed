@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router';
 import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import {Text, Play, Chapter} from '../chapterStyles';

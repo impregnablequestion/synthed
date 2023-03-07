@@ -31,6 +31,7 @@ public class PresetController {
 
 //        giving the envelopes the preset_id so that they can be saved
         preset.initParams(preset.getOsc(), preset.getGeneral(), preset.getFilter(), preset.getEnvelope());
+        presetRepo.save(preset);
         return new ResponseEntity(preset, HttpStatus.CREATED);
     }
 

@@ -1,5 +1,6 @@
+import styled from '@emotion/styled'
 import React from 'react'
-import { PresetProps } from '../../types/prop-types';
+import NewPreset from './NewPreset'
 
 const Presets = ({data, isLoading, error}: PresetProps) => {
 
@@ -18,11 +19,23 @@ const Presets = ({data, isLoading, error}: PresetProps) => {
     console.log(presets);
 
     return(
-      <div>Presets</div>
+      <PresetBox>
+        <NewPreset/>
+        <ul>
+          {presets?.map((preset: Settings) => {
+            return(<li key={preset.id}>{preset.name}</li>)
+          })}
+        </ul>
+
+      </PresetBox>
     )
   }
-  
-
 }
 
-export default Presets
+export default Presets;
+
+const PresetBox = styled.div`
+  height: 13rem;
+  border: 1px solid black;
+`
+
