@@ -26,14 +26,33 @@ export const presetsApi = createApi({
       invalidatesTags: [{type: 'Preset', id: 'LIST'}]
     }),
 
+    updatePreset: builder.mutation<Settings, Partial<Settings>>({
+      query(data) {
+        const {id, ...body} = data
+        return {
+          url: `presets/${id}`,
+          method: 'PUT',
+          body,
+        }
+      },
+      invalidatesTags: [{type: 'Preset', id: 'LIST'}]
+    }),
+
     deletePreset: builder.mutation<Settings, number>({
       query: (id) => ({
         url: `presets/${id}`,
         method: 'DELETE',
       }),
       invalidatesTags: (result, error, id) => [{type: 'Preset', id: 'LIST'}]
-    })
+    }),
+
   }),
 })
 
-export const {useGetPresetsQuery, useGetPresetByIDQuery, useAddPresetMutation, useDeletePresetMutation} = presetsApi;
+export const {
+  useGetPresetsQuery,
+  useGetPresetByIDQuery,
+  useAddPresetMutation,
+  useDeletePresetMutation,
+  useUpdatePresetMutation
+} = presetsApi;

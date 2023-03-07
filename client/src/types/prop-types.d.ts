@@ -41,4 +41,6 @@ type BottomNavProps = {
 
 type PresetProps = {
   preset: Settings;
+  loaded: number;
+  switchLoaded: (id: number) => void;
 }

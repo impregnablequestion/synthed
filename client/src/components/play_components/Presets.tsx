@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useState } from 'react'
 import { useGetPresetsQuery } from '../../app/services/presetsApi'
 import NewPreset from './NewPreset'
 import PresetCard from './PresetCard'
@@ -8,7 +8,11 @@ const Presets = () => {
 
   const { data, isLoading, error } = useGetPresetsQuery();
 
+  const [loaded, setLoaded] = useState(0)
 
+  const handleSwitchLoaded = (id: number) => {
+    setLoaded(id)
+  }
 
   if (isLoading) {
     return (
@@ -21,16 +25,15 @@ const Presets = () => {
   } else {
 
     const presets = data?.map((preset: Settings) => {
-      return (<PresetCard preset={preset} key={preset.id} />)
+      return (<PresetCard preset={preset} key={preset.id} loaded={loaded} switchLoaded={handleSwitchLoaded} />)
     })
 
     return (
       <PresetBox>
+        <h3>presets</h3>
         <NewPreset />
         <PresetList>
-          <ul>
-            {presets}
-          </ul>
+          {presets}
         </PresetList>
       </PresetBox>
     )
