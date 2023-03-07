@@ -1,39 +1,27 @@
 import React from 'react'
-import { useAppDispatch } from '../../app/hooks';
-import { useGetPresetsQuery } from '../../app/services/presetsApi'
-import { load_preset } from '../../features/synthSlice';
+import { PresetProps } from '../../types/prop-types';
 
-const Presets = () => {
+const Presets = ({data, isLoading, error}: PresetProps) => {
 
-  const {data, error, isLoading}= useGetPresetsQuery();
-  const dispatch = useAppDispatch();
-
-  const handleClick = (preset: Settings) => {
-    dispatch(load_preset(preset))
-  }
-
-  const presets = data?.map((preset: Settings) => {
-    return(<li key={preset.id}>
-      <button onClick={()=>handleClick(preset)}>{preset.name}</button>
-    </li>)
-  })
+  const presets = data
 
   if (isLoading) {
-    return(<p>
-      loading...
-    </p>)
-  } else if (error) {
-    console.log(error);
     return(
-      <p>failed to load</p>
+      <p>Loading presets</p>
+    )
+  } else if (error) {
+    return(
+      <p>Presets failed to load</p>
     )
   } else {
-    return (
-      <ul>
-        {presets}
-      </ul>
+
+    console.log(presets);
+
+    return(
+      <div>Presets</div>
     )
   }
+  
 
 }
 

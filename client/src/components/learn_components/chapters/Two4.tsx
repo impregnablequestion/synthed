@@ -6,6 +6,7 @@ import { preset2 } from '../../../app/synth_engine/presets';
 import HorizontalSlider from '../../controls/HorizontalSlider';
 import NoteButton from '../../controls/NoteButton';
 import BottomNav from '../../BottomNav';
+import { ChapterProps } from '../../../types/prop-types';
 
 const Two4 = ({ next, nextLabel }: ChapterProps) => {
 

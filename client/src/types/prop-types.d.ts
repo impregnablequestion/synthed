@@ -1,3 +1,6 @@
+import { SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
+
 type SliderProps = {
   module: keyof Settings;
   param: Params;
@@ -37,4 +40,10 @@ type BottomNavProps = {
   previous?: boolean;
   next?: string;
   nextLabel?: string;
+}
+
+type PresetProps = {
+  data: Settings[] | undefined;
+  isLoading: boolean;
+  error: FetchBaseQueryError | undefined | SerializedError;
 }
