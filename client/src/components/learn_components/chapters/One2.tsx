@@ -63,8 +63,8 @@ const One2 = ({ next }: ChapterProps) => {
         />
       </Play>
       <Nav>
-        <button onClick={() => navigate(-1)}>previous</button>
-        <button onClick={() => navigate(next)}>next</button>
+        <button onClick={() => navigate(-1)}>back</button>
+        <button onClick={() => navigate(next)}>next: wave types</button>
       </Nav>
     </Chapter>
   )

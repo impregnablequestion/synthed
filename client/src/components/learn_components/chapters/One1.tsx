@@ -60,7 +60,7 @@ const One1 = ({ next }: ChapterProps) => {
         />
       </Play>
       <Nav>
-        <button onClick={() => navigate(next)}>next</button>
+        <button onClick={() => navigate(next)}>next: frequency</button>
       </Nav>
     </Chapter>
   )
