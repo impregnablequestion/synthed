@@ -23,7 +23,10 @@ function App() {
       }
     },
     typography: {
-      fontFamily: ['Figtree', 'sans-serif'].join(",")
+      fontFamily: ['Figtree', 'sans-serif'].join(","),
+      button: {
+        textTransform: 'none'
+      }
     }
   })
 

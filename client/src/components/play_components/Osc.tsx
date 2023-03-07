@@ -7,7 +7,7 @@ import VertSlider from '../controls/VerticalSlider'
 const Osc = () => {
   return (
     <OscCard>
-      <h2>osc</h2>
+      <h2>oscillator</h2>
       <OscParams>
         <Controls>
           <p>coarse tune</p>

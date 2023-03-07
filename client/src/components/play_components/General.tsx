@@ -6,7 +6,7 @@ const General = () => {
   return (
     <GeneralContainer>
       <Selectors>
-        <DropdownSelector param='voices' options={[1, 2, 4, 8]}/>
+        <DropdownSelector param='voices' options={[1, 2, 4, 6]}/>
         <DropdownSelector param='octave' options={[-2, -1, 0, 1, 2]}/>
       </Selectors>
     </GeneralContainer>

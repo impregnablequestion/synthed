@@ -1,7 +1,8 @@
-import styled from '@emotion/styled'
 import React from 'react'
-import { useNavigate } from 'react-router'
-import HorizontalSlider from './controls/HorizontalSlider'
+import styled from '@emotion/styled';
+import { useNavigate } from 'react-router';
+import HorizontalSlider from './controls/HorizontalSlider';
+import { Button } from '@mui/material';
 
 const Header = () => {
 
@@ -9,7 +10,11 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Title onClick={() => navigate("../")}>synthed</Title>
+      <Button
+      onClick={() => navigate("../")}
+      sx={{
+        padding: "1rem"
+      }}><h1>synthed</h1></Button>
       <SliderWithLabel>
         <label>master volume</label>
         <HorizontalSlider module='general' param='master_gain' min={0} max={1} step={0.01} />
@@ -19,14 +24,6 @@ const Header = () => {
 }
 
 export default Header
-
-const Title = styled.h1`
-  color: green;
-  &:hover {
-    color: blue;
-    text-decoration: underline;
-  }
-`
 
 const SliderWithLabel = styled.div`
   display: flex;

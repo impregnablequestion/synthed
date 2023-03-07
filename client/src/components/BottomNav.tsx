@@ -7,13 +7,17 @@ const BottomNav = ({previous, next, nextLabel}: BottomNavProps) => {
 
   const navigate = useNavigate();
 
-  const label = `next: ${nextLabel}`
+  const label = `next${nextLabel}`
 
   return (
     <Nav>
-      {previous && <Button onClick={()=>{navigate(-1)}}>back</Button>}
-      <Button onClick={()=>{navigate("/")}}>home</Button>
-      {next && <Button onClick={()=>{navigate(next)}}>{label}</Button>}
+      {previous && 
+      <Button variant='outlined' onClick={()=>{navigate(-1)}}>back</Button>
+      }
+      <Button variant='outlined' onClick={()=>{navigate("/")}}>home</Button>
+      {next &&
+      <Button variant='outlined' onClick={()=>{navigate(next)}}>{label}</Button>
+      }
     </Nav>
   )
 }
