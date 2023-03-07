@@ -13,7 +13,7 @@ const Filter = () => {
       />
       <p>resonance</p>
       <HorizontalSlider
-      module='filter' param='q' min={0} max={5000} step = {10}
+      module='filter' param='q' min={0.1} max={50} step = {0.25}
       />
       <TypeSelector module='filter' param='type'/>
     </FilterCard>

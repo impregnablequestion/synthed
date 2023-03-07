@@ -28,9 +28,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Welcome/>}/>
-          <Route path="/learn" element={<LearnContainer/>}/>
-          <Route path="/play" element={<PlayContainer/>}/>
+          <Route index element={<Welcome/>}/>
+          <Route path="learn/*" element={<LearnContainer/>}/>
+          <Route path="play" element={<PlayContainer/>}/>
           <Route path="*" element={<Error/>}/>
         </Routes>
       </Router>

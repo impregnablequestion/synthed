@@ -11,7 +11,7 @@ const synth = new Synthesizer(ctx, preset1);
 synthMiddleware.startListening({
   actionCreator: play_note,
   effect: (action) => {
-    console.log("played_note:", action);
+    // console.log("played_note:", action);
     synth.noteOn(action.payload);
   }
 });
@@ -19,7 +19,7 @@ synthMiddleware.startListening({
 synthMiddleware.startListening({
   actionCreator: stop_note,
   effect: (action) => {
-    console.log("released_note:", action);
+    // console.log("released_note:", action);
     synth.noteOff(action.payload);
   }
 });
@@ -54,6 +54,5 @@ synthMiddleware.startListening({
     console.log(synth.settings);
     synth.setParams(action.payload);
     console.log(synth.settings);
-    
   }
 })

@@ -35,7 +35,6 @@ export default Osc;
 const OscCard = styled.div`
   display: flex;
   flex-direction: column;
-  
 `
 
 const OscParams = styled.div`
@@ -50,4 +49,5 @@ const Controls = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
 `

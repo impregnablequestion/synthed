@@ -38,13 +38,13 @@ const EnvelopeCard = styled.div`
   gap: 2rem;
 `
 
-const EnvelopeParams = styled.div`
+export const EnvelopeParams = styled.div`
   display:flex;
   justify-content: center;
   align-items: center;
 `
 
-const EnvelopeParam = styled.div`
+export const EnvelopeParam = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
