@@ -8,6 +8,7 @@ type SliderProps = {
 
 type ChapterProps = {
   next: string;
+  nextLabel: string;
 }
 
 type XYProps = {
@@ -30,4 +31,10 @@ type KeyboardProps = {
   first: string;
   last: string;
   width: number;
+}
+
+type BottomNavProps = {
+  previous?: boolean;
+  next?: string;
+  nextLabel?: string;
 }

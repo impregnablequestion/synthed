@@ -25,22 +25,21 @@ const LearnContainer = () => {
     <div>
       <Header />
       <Routes>
-        <Route path="1" element={<One1 next="/learn/2" />} />
-        <Route path="2" element={<One2 next="/learn/3" />} />
-        <Route path="3" element={<One3 next="/learn/4" />} />
-        <Route path="4" element={<One4 next="/learn/5" />} />
-        <Route path="5" element={<Two1 next="/learn/6" />} />
-        <Route path="6" element={<Two2 next="/learn/7" />} />
-        <Route path="7" element={<Two3 next="/learn/8" />} />
-        <Route path="8" element={<Two4 next="/learn/9" />} />
-        <Route path="9" element={<Three1 next="/learn/10" />} />
-        <Route path="10" element={<Three2 next="/learn/11" />} />
-        <Route path="11" element={<Three3 next="/learn/12" />} />
-        <Route path="12" element={<Three4 next="/learn/end" />} />
-        <Route path="end" element={<End next="/play" />} />
+        <Route path="1" element={<One1 next="/learn/2" nextLabel='frequency'/>} />
+        <Route path="2" element={<One2 next="/learn/3" nextLabel='types'/>} />
+        <Route path="3" element={<One3 next="/learn/4" nextLabel='recap'/>} />
+        <Route path="4" element={<One4 next="/learn/5" nextLabel='2. Filters'/>} />
+        <Route path="5" element={<Two1 next="/learn/6" nextLabel='frequency'/>} />
+        <Route path="6" element={<Two2 next="/learn/7" nextLabel='types'/>} />
+        <Route path="7" element={<Two3 next="/learn/8" nextLabel='resonance'/>} />
+        <Route path="8" element={<Two4 next="/learn/9" nextLabel='3. Envelopes'/>} />
+        <Route path="9" element={<Three1 next="/learn/10" nextLabel='release'/>} />
+        <Route path="10" element={<Three2 next="/learn/11" nextLabel='decay and sustain'/>} />
+        <Route path="11" element={<Three3 next="/learn/12" nextLabel='putting it together'/>} />
+        <Route path="12" element={<Three4 next="/learn/end" nextLabel=''/>} />
+        <Route path="end" element={<End next="/play" nextLabel='play'/>} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <button onClick={() => navigate("../")}>home</button>
     </div>
   )
 }

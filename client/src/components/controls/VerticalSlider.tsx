@@ -23,7 +23,6 @@ const VertSlider = ({module, param, min, max, step}: SliderProps) => {
     <Slider
       sx={{
         height: 200,
-        color: 'black',
         '& input[type="range"]': {
           WebkitAppearance: 'slider-vertical',
         },
