@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../../../app/hooks';
-import { preset1 } from '../../../app/synth_engine/presets';
+import { preset1, preset2 } from '../../../app/synth_engine/presets';
 import { load_preset } from '../../../features/synthSlice';
 import XY from '../../controls/XY';
 import { Text, Nav, Play, Chapter } from '../chapterStyles'
@@ -12,7 +12,7 @@ const One4 = ({ next }: ChapterProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(load_preset(preset1))
+    dispatch(load_preset(preset2))
   }, [dispatch])
 
   return (
@@ -31,7 +31,7 @@ const One4 = ({ next }: ChapterProps) => {
         />
       </Play>
       <Nav>
-        <button onClick={() => navigate(-1)}>previous</button>
+        <button onClick={() => navigate(-1)}>back</button>
         <button onClick={() => navigate(next)}>next: 2: Filters</button>
       </Nav>
     </Chapter>

@@ -26,7 +26,7 @@ const XY = ({xModule, xParam, yModule, yParam, xMin, xMax, yMin, yMax, note}: XY
         value: localMousePos.y * yScale
       }));
     }
-    if (xModule && xParam) {
+    if (xModule && xParam && localMousePos.x > 0) {
       dispatch(change_param({
         module: xModule,
         param: xParam,

@@ -45,6 +45,7 @@ export default class Synthesizer {
   refresh() {
     this.filter.frequency.value = this.settings.filter.frequency;
     this.filter.type = this.settings.filter.type;
+    this.filter.Q.value = this.settings.filter.q;
     this.master.gain.value = this.settings.general.master_gain;
     this.transpose = this.settings.general.octave * 12
 

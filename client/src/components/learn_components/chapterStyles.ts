@@ -12,7 +12,10 @@ export const Play = styled.div`
   gap: 1rem;
 `
 
-export const Nav = styled.div``
+export const Nav = styled.div`
+  display: flex;
+  justify-content: space-between
+`
 
 export const Chapter = styled.div`
   display: flex;

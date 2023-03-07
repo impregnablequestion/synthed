@@ -16,6 +16,17 @@ const Three1 = ({ next }: ChapterProps) => {
   return (
     <Chapter>
       <Text>
+        <h1>3-1: Envelopes</h1>
+        <p>
+          Envelopes are a bit different to oscillators and filters, in that
+          we use them to control how a sound changes over time. In this
+          case, the envelope changes the volume over time, although on more complicated synths
+          it can be assigned to any parameter.
+        </p>
+        <p>
+          The first parameter we will learn about is the attack! The attack controls how long a note takes
+          to reach its full volume
+        </p>
       </Text>
       <Play>
       </Play>

@@ -21,7 +21,7 @@ const Three4 = ({ next }: ChapterProps) => {
       </Play>
       <Nav>
         <button onClick={() => navigate(-1)}>back</button>
-        <button onClick={() => navigate(next)}>next: frequency</button>
+        <button onClick={() => navigate(next)}>next: fr</button>
       </Nav>
     </Chapter>
   )

@@ -32,7 +32,7 @@ synthMiddleware.startListening({
     let {module, param, value} = action.payload;
     const settings = synth.settings;
 
-    // console.log("Previous: ", settings);
+    console.log("Previous: ", settings);
 
     const newSettings = {
       ...settings,
@@ -42,7 +42,7 @@ synthMiddleware.startListening({
       }
     }
 
-    // console.log("Updated: ", newSettings);
+    console.log("Updated: ", newSettings);
     
     synth.setParams(newSettings);
   }
@@ -51,8 +51,8 @@ synthMiddleware.startListening({
 synthMiddleware.startListening({
   actionCreator: load_preset,
   effect: (action) => {
-    // console.log(synth.settings);
+    console.log(synth.settings);
     synth.setParams(action.payload);
-    // console.log(synth.settings);
+    console.log(synth.settings);
   }
 })

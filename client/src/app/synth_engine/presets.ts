@@ -11,7 +11,7 @@ const preset1: Settings = {
   filter: {
     frequency: 15000,
     type: "lowpass",
-    q: 1000
+    q: 0.1
   },
   envelope: {
     attack: 0.1,
@@ -31,7 +31,7 @@ const preset2: Settings = {
   name: "preset2",
   tags: "",
   osc: {
-    wave: "triangle",
+    wave: "square",
     coarse_tune: 0,
     fine_tune: 0,
     gain: 1
@@ -39,7 +39,7 @@ const preset2: Settings = {
   filter: {
     frequency: 15000,
     type: "lowpass",
-    q: 0
+    q: 0.1
   },
   envelope: {
     attack: 0.01,

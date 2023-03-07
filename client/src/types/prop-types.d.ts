@@ -25,3 +25,8 @@ type XYProps = {
 type NoteButtonProps = {
   note: number;
 }
+
+type KeyboardProps = {
+  first: string;
+  last: string;
+}

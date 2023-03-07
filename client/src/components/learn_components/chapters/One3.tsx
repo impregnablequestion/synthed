@@ -31,7 +31,7 @@ const One3 = ({ next }: ChapterProps) => {
         <NoteButton note={50} />
       </Play>
       <Nav>
-        <button onClick={() => navigate(-1)}>previous</button>
+        <button onClick={() => navigate(-1)}>back</button>
         <button onClick={() => navigate(next)}>next: recap</button>
       </Nav>
     </Chapter>
