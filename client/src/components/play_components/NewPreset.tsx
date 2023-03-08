@@ -17,13 +17,13 @@ const NewPreset = () => {
     setName(event.target.value);
   }
 
-  const handleTagChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTag(event.target.value)
-  }
+  // const handleTagChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setTag(event.target.value)
+  // }
 
   const handleSubmit = async () => {
 
-    if (name !== "" && tag !== "") {
+    if (name !== "") {
       try {
         const {id, ...noId} = selected;
         const newPreset: Settings = {
@@ -53,7 +53,7 @@ const NewPreset = () => {
       onChange={handleNameChange}
       inputProps={{maxLength: 14}}
       />
-      <TextField
+      {/* <TextField
       id="tag"
       label="tag"
       variant='outlined'
@@ -62,8 +62,8 @@ const NewPreset = () => {
       value={tag}
       onChange={handleTagChange}
       inputProps={{maxLength: 14}}
-      />
-      <Button variant='outlined' onClick={handleSubmit}>save settings</Button>
+      /> */}
+      <Button variant='outlined' onClick={handleSubmit}>new preset</Button>
     </PresetForm>
   )
 }
@@ -71,7 +71,7 @@ const NewPreset = () => {
 export default NewPreset
 
 const PresetForm = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 0rem 2rem;
 `

@@ -14,8 +14,8 @@ const Welcome = () => {
       <p>step by step, you can learn how a synthesizer works, <br/>and put it into practice at the end in the play view!</p>
       <p>would you like to....</p>
       <OptionsContainer>
-        <Button variant="contained" onClick={()=>{navigate("/learn/1")}} disableElevation size='large'>learn</Button>
-        <Button variant="contained" onClick={()=>{navigate("/play")}} disableElevation size='large'>play</Button>
+        <Button color="secondary" variant="contained" onClick={()=>{navigate("/learn/1")}} disableElevation size='large'>learn</Button>
+        <Button color="warning"variant="contained" onClick={()=>{navigate("/play")}} disableElevation size='large'>play</Button>
       </OptionsContainer>
     </div>
   )
