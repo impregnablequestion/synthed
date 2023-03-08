@@ -21,9 +21,9 @@ const One2 = ({ next, nextLabel }: ChapterProps) => {
         <h2>1-2: Frequency</h2>
         <p>For now, the most important thing you need to know about oscillators is that they make sound by repeating an action at a particular frequency</p>
         <p>The more often the action is repeated, the higher we perceive the note to be!</p>
+        <p>Adjust the sliders and listen to how they effect the pitch of the sound</p>
       </Text>
       <Play>
-        <p>Adjust the sliders and listen to how it affects the sound</p>
         <NoteButton note={50} />
         <p>coarse tune</p>
         <HorizontalSlider

@@ -1,40 +1,51 @@
-import React from 'react'
-import { useAppDispatch } from '../../app/hooks';
+import styled from '@emotion/styled'
+import React, { useState } from 'react'
 import { useGetPresetsQuery } from '../../app/services/presetsApi'
-import { load_preset } from '../../features/synthSlice';
+import NewPreset from './NewPreset'
+import PresetCard from './PresetCard'
 
 const Presets = () => {
 
-  const {data, error, isLoading}= useGetPresetsQuery();
-  const dispatch = useAppDispatch();
+  const { data, isLoading, error } = useGetPresetsQuery();
 
-  const handleClick = (preset: Settings) => {
-    dispatch(load_preset(preset))
+  const [loaded, setLoaded] = useState(0)
+
+  const handleSwitchLoaded = (id: number) => {
+    setLoaded(id)
   }
-
-  const presets = data?.map((preset: Settings) => {
-    return(<li key={preset.id}>
-      <button onClick={()=>handleClick(preset)}>{preset.name}</button>
-    </li>)
-  })
 
   if (isLoading) {
-    return(<p>
-      loading...
-    </p>)
+    return (
+      <p>Loading presets</p>
+    )
   } else if (error) {
-    console.log(error);
-    return(
-      <p>failed to load</p>
+    return (
+      <p>Presets failed to load</p>
     )
   } else {
+
+    const presets = data?.map((preset: Settings) => {
+      return (<PresetCard preset={preset} key={preset.id} loaded={loaded} switchLoaded={handleSwitchLoaded} />)
+    })
+
     return (
-      <ul>
-        {presets}
-      </ul>
+      <PresetBox>
+        <h3>presets</h3>
+        <NewPreset />
+        <PresetList>
+          {presets}
+        </PresetList>
+      </PresetBox>
     )
   }
-
 }
 
-export default Presets
+export default Presets;
+
+const PresetBox = styled.div`
+  height: 13rem;
+`
+
+const PresetList = styled.div`
+  overflow: scroll;
+`

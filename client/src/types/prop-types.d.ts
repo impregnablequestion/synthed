@@ -38,3 +38,9 @@ type BottomNavProps = {
   next?: string;
   nextLabel?: string;
 }
+
+type PresetProps = {
+  preset: Settings;
+  loaded: number;
+  switchLoaded: (id: number) => void;
+}
