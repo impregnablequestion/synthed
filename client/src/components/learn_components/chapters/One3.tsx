@@ -20,8 +20,8 @@ const One3 = ({ next, nextLabel }: ChapterProps) => {
     <Chapter>
       <Text>
         <h2>1-3: Waveforms</h2>
-        <p>The sound quality of an oscillator is dependend on what type of waveform it creates!</p>
-        <p>Try switching between the waveforms provided below and listen to the how the sound changes</p>
+        <p>The sound quality of an oscillator is controlled by the type of waveform it creates!</p>
+        <p>Try switching between the waveforms provided below and listen to the character of the sound changing</p>
       </Text>
       <Play>
         <TypeSelector

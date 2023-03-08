@@ -28,8 +28,8 @@ const Three3 = ({ next, nextLabel }: ChapterProps) => {
           for as long as the key is held down
         </p>
         <p>
-          The decay is closely linked, in that it controls how long it takes for the song to go from the peak after the attack 
-          to the sustain
+          The decay is closely linked, in that it controls how long it takes for the note to go from the peak 
+          to the sustain after the attack has finished
         </p>
         <p>
           Try a low decay as well as a low sustain for a plucked sound

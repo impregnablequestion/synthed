@@ -23,7 +23,7 @@ const Two3 = ({ next, nextLabel }: ChapterProps) => {
         <p>Just like with the oscillators, have a play with switching between the different filters, 
           and use the frequency slider to hear how they effect the sound
         </p>
-        <p>LP filters out all the sound above a frequency, while HP filters out all the sound below</p>
+        <p>Lowpass filters out all the sound above the frequency, while highpass filters out all the sound below it</p>
         <p>Bandpass only lets sounds within a certain band pass through, while notch does the opposite!</p>
       </Text>
       <Play>

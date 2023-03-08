@@ -35,7 +35,7 @@ const LearnContainer = () => {
         <Route path="10" element={<Three2 next="/learn/11" nextLabel=': decay and sustain'/>} />
         <Route path="11" element={<Three3 next="/learn/12" nextLabel=': putting it together'/>} />
         <Route path="12" element={<Three4 next="/learn/end" nextLabel=''/>} />
-        <Route path="end" element={<End next="/play" nextLabel='play'/>} />
+        <Route path="end" element={<End next="/play" nextLabel=': play'/>} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
