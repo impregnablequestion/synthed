@@ -8,12 +8,11 @@ import { load_preset, selectSettings } from '../../features/synthSlice'
 const PresetCard = ({ preset, loaded, switchLoaded }: PresetProps) => {
 
   const selected = useAppSelector(selectSettings);
-
-  const current = loaded === preset.id;
-
   const dispatch = useAppDispatch();
   const [deletePreset] = useDeletePresetMutation();
   const [updatePreset] = useUpdatePresetMutation();
+
+  const current = loaded === preset.id;
 
   const handleLoad = () => {
     dispatch(load_preset(preset));
@@ -31,18 +30,17 @@ const PresetCard = ({ preset, loaded, switchLoaded }: PresetProps) => {
   return (
     <PresetCardContainer>
       <p>{preset.name}</p>
-      <p>{preset.tags}</p>
       {
         current ?
-          <Button variant='outlined' size='small' onClick={() => { handleUpdate() }}>
+          <Button disableElevation color="warning" variant='text' size='small' onClick={() => { handleUpdate() }}>
             update
           </Button>
           :
-          <Button variant='outlined' size='small' onClick={() => { handleLoad() }}>
+          <Button disableElevation color="secondary" variant='contained' size='small' onClick={() => { handleLoad() }}>
             load
           </Button>
       }
-      <Button variant='outlined' size='small' onClick={() => { handleDelete()}}>delete
+      <Button color="warning" variant='contained' size='small' onClick={() => { handleDelete()}}>delete
       </Button>
     </PresetCardContainer>
   )
@@ -51,6 +49,14 @@ const PresetCard = ({ preset, loaded, switchLoaded }: PresetProps) => {
 export default PresetCard
 
 const PresetCardContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
+  /* display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 20px;
+  margin-bottom: 15px; */
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 10px;
+  text-align: left;
 `

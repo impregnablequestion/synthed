@@ -30,7 +30,7 @@ public class DataLoader implements ApplicationRunner {
 
         General general1 = new General(4, 0, 0.6);
         Osc osc1 = new Osc(WaveType.sine, 0, 0, 1);
-        Filter filter1 = new Filter(20000, FilterType.lowpass, 1000);
+        Filter filter1 = new Filter(20000, FilterType.lowpass, 2);
         Envelope envelope1 = new Envelope(0.01, 0.2, 0.8, 0.3);
 
         Preset preset1 = new Preset("factory 1", "sine", osc1, general1, filter1, envelope1);
@@ -39,7 +39,7 @@ public class DataLoader implements ApplicationRunner {
 
         General general2 = new General(4, 0, 0.6);
         Osc osc2 = new Osc(WaveType.square, 0, 0, 1);
-        Filter filter2 = new Filter(400, FilterType.notch, 1000);
+        Filter filter2 = new Filter(400, FilterType.notch, 10);
         Envelope envelope2 = new Envelope(0.5, 0.2, 0.8, 0.1);
 
         Preset preset2 = new Preset("factory 2", "square", osc2, general2, filter2, envelope2);

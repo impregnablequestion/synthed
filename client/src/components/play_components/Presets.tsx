@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import React, { useState } from 'react'
 import { useGetPresetsQuery } from '../../app/services/presetsApi'
-import NewPreset from './NewPreset'
 import PresetCard from './PresetCard'
 
 const Presets = () => {
@@ -30,8 +29,7 @@ const Presets = () => {
 
     return (
       <PresetBox>
-        <h3>presets</h3>
-        <NewPreset />
+        <h2>presets</h2>
         <PresetList>
           {presets}
         </PresetList>
@@ -43,9 +41,11 @@ const Presets = () => {
 export default Presets;
 
 const PresetBox = styled.div`
-  height: 13rem;
+  height: 19rem;
+  /* border: 1px solid black; */
 `
 
 const PresetList = styled.div`
   overflow: scroll;
+  height: 15rem;
 `
