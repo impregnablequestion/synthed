@@ -4,13 +4,13 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { change_param, selectSettings } from '../../features/synthSlice';
 import Log from './Log';
 
-const LogSlider = ({module, param, min, max, step}: SliderProps) => {
-  
-  const selected = useAppSelector(selectSettings);  
+const LogSlider = ({ module, param, min, max, step, vertical, length }: SliderProps) => {
+
+  const selected = useAppSelector(selectSettings);
   const dispatch = useAppDispatch();
 
   const log = new Log(min, max)
-  
+
   const handleChange = (event: Event, value: number | number[]) => {
 
     const pos = Array.isArray(value) ? value[0] : value;
@@ -27,19 +27,25 @@ const LogSlider = ({module, param, min, max, step}: SliderProps) => {
 
   const displayValue = (position: number) => {
     const value = log.value(position);
-    return Math.round(value*100)/100
+    return Math.round(value * 100) / 100
   }
+
+  const style = ( vertical ?
+    {
+      height: length || 200,
+      '& input[type="range"]': {
+        WebkitAppearance: 'slider-vertical',
+      },
+    } : {
+      width: length || 200
+    }
+  )
 
   return (
     <Slider
-      sx={{
-        height: 200,
-        '& input[type="range"]': {
-          WebkitAppearance: 'slider-vertical',
-        },
-      }}
+      sx={style}
+      orientation={vertical? "vertical":"horizontal"}
       size="small"
-      orientation="vertical"
       step={step}
       min={min}
       max={max}

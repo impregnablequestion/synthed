@@ -4,6 +4,8 @@ type SliderProps = {
   min: number;
   max: number;
   step: number;
+  vertical?: boolean;
+  length?: number;
 }
 
 type ChapterProps = {

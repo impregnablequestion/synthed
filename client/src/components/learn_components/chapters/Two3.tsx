@@ -4,7 +4,7 @@ import { load_preset } from '../../../features/synthSlice';
 import { preset2 } from '../../../app/synth_engine/presets';
 import {Text, Play, Chapter} from '../chapterStyles';
 import NoteButton from '../../controls/NoteButton';
-import HorizontalSlider from '../../controls/HorizontalSlider';
+import LogSlider from '../../controls/LogSlider';
 import TypeSelector from '../../controls/TypeSelector';
 import BottomNav from '../../BottomNav';
 
@@ -29,7 +29,7 @@ const Two3 = ({ next, nextLabel }: ChapterProps) => {
       <Play>
         <NoteButton note={40}/>
         <p>frequency</p>
-        <HorizontalSlider module='filter' param='frequency' min={20} max={20000} step={1}/>
+        <LogSlider module='filter' param='frequency' min={20} max={20000} step={1}/>
         <p>filter type</p>
         <TypeSelector module='filter' param='type'/>
       </Play>

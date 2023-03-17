@@ -47,8 +47,8 @@ export default class Synthesizer {
     let {currentTime} = this.context;
 
     this.master.gain.cancelScheduledValues(currentTime);
-    this.master.gain.linearRampToValueAtTime(this.settings.general.master_gain, currentTime + 0.001)
-    this.master.gain.setValueAtTime(this.settings.general.master_gain, currentTime + 0.002);
+    this.master.gain.setValueAtTime(this.master.gain.value, currentTime);
+    this.master.gain.linearRampToValueAtTime(this.settings.general.master_gain, currentTime + 0.005);
 
     this.filter.frequency.value = this.settings.filter.frequency;
     this.filter.type = this.settings.filter.type;

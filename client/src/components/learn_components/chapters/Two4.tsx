@@ -3,7 +3,8 @@ import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import { Text, Play, Chapter } from '../chapterStyles'
 import { preset2 } from '../../../app/synth_engine/presets';
-import HorizontalSlider from '../../controls/HorizontalSlider';
+import LogSlider from '../../controls/LogSlider';
+import LinSlider from '../../controls/LinSlider';
 import NoteButton from '../../controls/NoteButton';
 import BottomNav from '../../BottomNav';
 
@@ -26,11 +27,11 @@ const Two4 = ({ next, nextLabel }: ChapterProps) => {
       <Play>
         <NoteButton note={35}/>
         <p>frequency</p>
-        <HorizontalSlider
+        <LogSlider
           module='filter' param='frequency' min={20} max={20000} step={10}
         />
         <p>resonance</p>
-        <HorizontalSlider
+        <LinSlider
           module='filter' param='q' min={0.1} max={30} step={0.25}
         />
       </Play>

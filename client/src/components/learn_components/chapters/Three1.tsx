@@ -3,7 +3,7 @@ import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import {Text, Play, Chapter} from '../chapterStyles'
 import { preset1 } from '../../../app/synth_engine/presets';
-import HorizontalSlider from '../../controls/HorizontalSlider';
+import LogSlider from '../../controls/LogSlider';
 import Keyboard from '../../controls/Keyboard';
 import BottomNav from '../../BottomNav';
 
@@ -31,7 +31,7 @@ const Three1 = ({ next, nextLabel }: ChapterProps) => {
         </p>
       </Text>
       <Play>
-        <HorizontalSlider module='envelope' param='attack' min={0.005} max={2} step={0.01}/>
+        <LogSlider module='envelope' param='attack' min={0.005} max={5} step={0.01}/>
         <Keyboard first="c4" last="g4" width={300}/>
       </Play>
       <BottomNav previous next={next} nextLabel={nextLabel}/>
