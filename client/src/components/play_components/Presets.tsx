@@ -19,7 +19,7 @@ const Presets = () => {
     )
   } else if (error) {
     return (
-      <p>Presets failed to load</p>
+      <p></p>
     )
   } else {
 

@@ -18,7 +18,7 @@ const Three2 = ({ next, nextLabel }: ChapterProps) => {
   return (
     <Chapter>
       <Text>
-        <h1>3-2: Envelopes - Release</h1>
+        <h2>3-2: Envelopes - Release</h2>
         <p>
           Release works the same way as attack, except it controls how long it takes the sound to fade out
           once we've released the key. Listen to how it makes the tail sharp at low settings, and long at high settings

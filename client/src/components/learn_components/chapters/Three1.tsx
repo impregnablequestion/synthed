@@ -18,7 +18,7 @@ const Three1 = ({ next, nextLabel }: ChapterProps) => {
   return (
     <Chapter>
       <Text>
-        <h1>3-1: Envelopes - Attack</h1>
+        <h2>3-1: Envelopes - Attack</h2>
         <p>
           Envelopes are a bit different to oscillators and filters, in that
           we use them to control how a sound changes over time. In this
