@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router';
-import HorizontalSlider from './controls/HorizontalSlider';
 import { Button } from '@mui/material';
+import LogSlider from './controls/LogSlider';
 
 const Header = () => {
 
@@ -17,7 +17,7 @@ const Header = () => {
       }}><h1>synthed</h1></Button>
       <SliderWithLabel>
         <label>master volume</label>
-        <HorizontalSlider module='general' param='master_gain' min={0} max={1} step={0.01} />
+        <LogSlider module='general' param='master_gain' min={0.001} max={1} step={0.01} />
       </SliderWithLabel>
     </HeaderContainer>
   )

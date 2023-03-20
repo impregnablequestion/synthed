@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useAppDispatch } from '../../../app/hooks';
 import { preset2 } from '../../../app/synth_engine/presets';
 import { load_preset } from '../../../features/synthSlice';
-import HorizontalSlider from '../../controls/HorizontalSlider';
+import LogSlider from '../../controls/LogSlider';
 import NoteButton from '../../controls/NoteButton';
 import {Text, Play, Chapter} from '../chapterStyles';
 import BottomNav from '../../BottomNav';
@@ -30,7 +30,7 @@ const Two2 = ({ next, nextLabel }: ChapterProps) => {
       <Play>
         <NoteButton note={50}/>
         <p>frequency</p>
-        <HorizontalSlider module='filter' param='frequency' min={20} max={20000} step={1}/>
+        <LogSlider module='filter' param='frequency' min={20} max={20000} step={1}/>
       </Play>
       <BottomNav previous next={next} nextLabel={nextLabel}/>
     </Chapter>

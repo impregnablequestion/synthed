@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import VertSlider from '../controls/VerticalSlider'
+import LogSlider from '../controls/LogSlider'
 
 const Envelope = () => {
   return (
@@ -8,20 +8,20 @@ const Envelope = () => {
     <h2>envelope</h2>
     <EnvelopeParams>
       <EnvelopeParam>
-        <VertSlider module='envelope' param='attack' min={0.005} max={1} step={0.005}/>
-        <p>A</p>
+        <LogSlider module='envelope' param='attack' min={0.005} max={1} step={0.005} vertical/>
+        <p>Attack</p>
       </EnvelopeParam>
       <EnvelopeParam>
-        <VertSlider module='envelope' param='decay' min={0.005} max={1} step={0.005}/>
-        <p>D</p>
+        <LogSlider module='envelope' param='decay' min={0.005} max={1} step={0.005} vertical/>
+        <p>Decay</p>
       </EnvelopeParam>
       <EnvelopeParam>
-        <VertSlider module='envelope' param='sustain' min={0.005} max={1} step={0.005}/>
-        <p>S</p>
+        <LogSlider module='envelope' param='sustain' min={0.005} max={1} step={0.005} vertical/>
+        <p>Sustain</p>
       </EnvelopeParam>
       <EnvelopeParam>
-        <VertSlider module='envelope' param='release' min={0.1} max={8} step={0.005}/>
-        <p>R</p>
+        <LogSlider module='envelope' param='release' min={0.1} max={8} step={0.005} vertical/>
+        <p>Release</p>
       </EnvelopeParam>
     </EnvelopeParams>
     </EnvelopeCard>
@@ -49,4 +49,5 @@ export const EnvelopeParam = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `

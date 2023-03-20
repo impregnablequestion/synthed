@@ -22,7 +22,7 @@ const preset1: Settings = {
   general: {
     voices: 4,
     octave: 0,
-    master_gain: 0.6
+    master_gain: 1
   }
 }
 

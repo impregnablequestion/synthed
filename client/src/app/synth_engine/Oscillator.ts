@@ -59,7 +59,7 @@ export default class Oscillator {
     this.volume.gain.setValueAtTime(0, currentTime);
     this.volume.gain.linearRampToValueAtTime(1, currentTime + this.envelope.attack + this.easing);
     this.volume.gain.setValueAtTime(1, currentTime + this.envelope.attack +  this.easing);
-    this.volume.gain.linearRampToValueAtTime(this.envelope.sustain, currentTime + this.envelope.attack + this.envelope.decay + this.easing);
+    this.volume.gain.exponentialRampToValueAtTime(this.envelope.sustain, currentTime + this.envelope.attack + this.envelope.decay + this.easing);
   }
 
   stop () {

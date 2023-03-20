@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import HorizontalSlider from '../controls/HorizontalSlider'
 import TypeSelector from '../controls/TypeSelector'
-import VertSlider from '../controls/VerticalSlider'
+import LogSlider from '../controls/LogSlider'
+import LinSlider from '../controls/LinSlider'
 
 const Osc = () => {
   return (
@@ -11,19 +11,19 @@ const Osc = () => {
       <OscParams>
         <Controls>
           <p>coarse tune</p>
-          <HorizontalSlider
+          <LinSlider
             module='osc' param='coarse_tune' min={-12} max={12} step={1}
           />
           <p>fine tune</p>
-          <HorizontalSlider
+          <LinSlider
             module='osc' param='fine_tune' min={-100} max={100} step={1}
           />
           <TypeSelector
             module='osc' param='wave'
           />
         </Controls>
-        <VertSlider
-          module='osc' param='gain' min={0} max={1} step={0.01}
+        <LogSlider
+          module='osc' param='gain' min={0.001} max={1} step={0.01} vertical
         />
       </OscParams>
     </OscCard>
