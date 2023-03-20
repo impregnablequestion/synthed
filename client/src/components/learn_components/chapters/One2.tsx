@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useAppDispatch } from '../../../app/hooks';
 import { load_preset } from '../../../features/synthSlice';
 import NoteButton from '../../controls/NoteButton';
-import { Text, Play, Chapter } from '../chapterStyles'
-import HorizontalSlider from '../../controls/HorizontalSlider';
+import { Text, Play, Chapter } from '../chapterStyles';
+import LinSlider from '../../controls/LinSlider';
 import { preset1 } from '../../../app/synth_engine/presets';
 import BottomNav from '../../BottomNav';
 
@@ -26,11 +26,11 @@ const One2 = ({ next, nextLabel }: ChapterProps) => {
       <Play>
         <NoteButton note={50} />
         <p>coarse tune</p>
-        <HorizontalSlider
+        <LinSlider
           module='osc' param='coarse_tune' min={-24} max={24} step={0.1}
         />
         <p>fine tune</p>
-        <HorizontalSlider
+        <LinSlider
           module='osc' param='fine_tune' min={-100} max={100} step={1}
         />
       </Play>

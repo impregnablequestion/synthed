@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
+import LogSlider from './controls/LogSlider';
+import NoteButton from './controls/NoteButton';
 
 const Welcome = () => {
 

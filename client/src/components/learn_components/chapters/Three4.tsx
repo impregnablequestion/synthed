@@ -5,7 +5,7 @@ import { Text, Play, Chapter } from '../chapterStyles'
 import { preset1 } from '../../../app/synth_engine/presets';
 import Keyboard from '../../controls/Keyboard';
 import { EnvelopeParam, EnvelopeParams } from '../../play_components/Envelope';
-import VertSlider from '../../controls/VerticalSlider';
+import LogSlider from '../../controls/LogSlider';
 import BottomNav from '../../BottomNav';
 
 const Three4 = ({ next, nextLabel }: ChapterProps) => {
@@ -27,19 +27,19 @@ const Three4 = ({ next, nextLabel }: ChapterProps) => {
       <Play>
         <EnvelopeParams>
           <EnvelopeParam>
-            <VertSlider module='envelope' param='attack' min={0.005} max={1} step={0.005} />
+            <LogSlider module='envelope' param='attack' min={0.005} max={1} step={0.005} vertical/>
             <p>Attack</p>
           </EnvelopeParam>
           <EnvelopeParam>
-            <VertSlider module='envelope' param='decay' min={0.005} max={1} step={0.005} />
+            <LogSlider module='envelope' param='decay' min={0.005} max={1} step={0.005} vertical/>
             <p>Decay</p>
           </EnvelopeParam>
           <EnvelopeParam>
-            <VertSlider module='envelope' param='sustain' min={0.005} max={1} step={0.005} />
+            <LogSlider module='envelope' param='sustain' min={0.005} max={1} step={0.005} vertical/>
             <p>Sustain</p>
           </EnvelopeParam>
           <EnvelopeParam>
-            <VertSlider module='envelope' param='release' min={0.1} max={8} step={0.005} />
+            <LogSlider module='envelope' param='release' min={0.1} max={8} step={0.005} vertical/>
             <p>Release</p>
           </EnvelopeParam>
         </EnvelopeParams>

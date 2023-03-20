@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import Keyboard from '../controls/Keyboard'
 import General from './General'
+// eslint-disable-next-line
 import NewPreset from './NewPreset'
 import Presets from './Presets'
 
@@ -14,8 +15,8 @@ const Console = () => {
       </KeyboardContainer>
       <BottomRight>
         <Presets />
-        <h3>add current settings as a preset</h3>
-        <NewPreset />
+        {/* <h3>add current settings as a preset</h3>
+        <NewPreset /> */}
       </BottomRight>
     </ConsoleContainer>
   )
